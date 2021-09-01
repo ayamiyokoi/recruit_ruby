@@ -18,12 +18,14 @@
 就活、転職中
 
 ## 設計書
-画面設計 →[就活アプリ.pdf](https://github.com/ayamiyokoi/recruit_ruby/files/7088916/default.pdf)
+画面設計 →[就活アプリ.pdf](https://github.com/ayamiyokoi/recruit_ruby/files/7089740/default.pdf)
+
  <br>
 ER図 → https://app.diagrams.net/#G12oFif1vCySn2SGXNAcd7otYdB-Z7sysM<br>
 テーブル定義書 →[recruitテーブル定義書.xlsx](https://github.com/ayamiyokoi/recruit_ruby/files/7089044/recruit.xlsx)
 <br>
-アプリケーション詳細設計 → 
+アプリケーション詳細設計 → [recruitアプリケーション詳細設計.xlsx](https://github.com/ayamiyokoi/recruit_ruby/files/7089741/recruit.xlsx)
+
 
 ## 開発環境
 - OS：Linux(CentOS)
