@@ -18,7 +18,8 @@
 就活、転職中
 
 ## 設計書
-画面設計 → <br>
+画面設計 →[就活アプリ.pdf](https://github.com/ayamiyokoi/recruit_ruby/files/7088916/default.pdf)
+ <br>
 ER図 → https://app.diagrams.net/#G12oFif1vCySn2SGXNAcd7otYdB-Z7sysM<br>
 テーブル定義書 →<br>
 アプリケーション詳細設計 → 
@@ -28,7 +29,7 @@ ER図 → https://app.diagrams.net/#G12oFif1vCySn2SGXNAcd7otYdB-Z7sysM<br>
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on rails
 - JSライブラリ：jQuery
-- IDE：AWS
+- IDE：Cloud9
 
 ## 使用素材
 
