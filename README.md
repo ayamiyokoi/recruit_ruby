@@ -25,10 +25,10 @@ ER図 → https://app.diagrams.net/#G12oFif1vCySn2SGXNAcd7otYdB-Z7sysM<br>
 
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Python,SQL
-- フレームワーク：Django
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on rails
 - JSライブラリ：jQuery
-- IDE：Visual Studio Code
+- IDE：AWS
 
 ## 使用素材
 
