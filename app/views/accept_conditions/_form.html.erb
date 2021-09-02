@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :importance %>
-    <%= form.number_field :importance %>
+    <%= form.select :importance, AcceptCondition.importances.keys.to_a, {} %>
   </div>
 
   <div class="actions">

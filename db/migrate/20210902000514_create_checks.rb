@@ -3,7 +3,7 @@ class CreateChecks < ActiveRecord::Migration[5.2]
     create_table :checks do |t|
       t.references :company, foreign_key: true
       t.references :accept_condition, foreign_key: true
-      t.integer :accept
+      t.integer :accept, defalut: 0
 
       t.timestamps
     end
