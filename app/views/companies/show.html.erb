@@ -1,29 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p id="notice"><%= notice %></p>
+      
+      <h1><%= link_to '<', companies_path %>     <%= @company.name %></h1>
+      <hr>
+      <div class="box_r">
+        <div class="row">
+          <div class="col-4">
+            <%= @company.name %>
+          </div>
+          <div class="col-4">
+            <%= @company.job %>
+          </div>
+          <div class="col-4">
+            <p>一次選考</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <p>志望度：</p>
+          </div>
+          <div class="col-8">
+            <p>次の選考</p>
+          </div>
+        </div>
+      </div>
+      <p>
+        <strong>Media:</strong>
+        <%= @company.media %>
+      </p>
+      <p><strong>会社メモ</strong></p>
+      <p class="box_s">
+        
+        <%= @company.detail %>
+      </p>
+      
+      <%= link_to '編集', edit_company_path(@company), class: "btn btn-success" %>
+      
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @company.user %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
-
-<p>
-  <strong>Media:</strong>
-  <%= @company.media %>
-</p>
-
-<p>
-  <strong>Job:</strong>
-  <%= @company.job %>
-</p>
-
-<p>
-  <strong>Detail:</strong>
-  <%= @company.detail %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>

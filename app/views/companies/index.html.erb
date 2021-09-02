@@ -1,35 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p id="notice"><%= notice %></p>
 
-<h1>Companies</h1>
+      <h1>応募リスト</h1>
+      <hr>
+      <%= link_to '応募企業の登録', new_company_path, class: "btn btn-primary" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th>Media</th>
-      <th>Job</th>
-      <th>Detail</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <!--<table>-->
+      <!--  <thead>-->
+      <!--    <tr>-->
+      <!--      <th>User</th>-->
+      <!--      <th>Name</th>-->
+      <!--      <th>Media</th>-->
+      <!--      <th>Job</th>-->
+      <!--      <th>Detail</th>-->
+      <!--      <th colspan="3"></th>-->
+      <!--    </tr>-->
+      <!--  </thead>-->
 
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.user %></td>
-        <td><%= company.name %></td>
-        <td><%= company.media %></td>
-        <td><%= company.job %></td>
-        <td><%= company.detail %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <!--  <tbody>-->
+      <!--    <% @companies.each do |company| %>-->
+      <!--      <tr>-->
+      <!--        <td><%= company.user %></td>-->
+      <!--        <td><%= company.name %></td>-->
+      <!--        <td><%= company.media %></td>-->
+      <!--        <td><%= company.job %></td>-->
+      <!--        <td><%= company.detail %></td>-->
+      <!--        <td><%= link_to 'Show', company %></td>-->
+      <!--        <td><%= link_to 'Edit', edit_company_path(company) %></td>-->
+      <!--        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      <!--      </tr>-->
+      <!--    <% end %>-->
+      <!--  </tbody>-->
+      <!--</table>-->
+      <% @companies.each do |company| %>
+        <%= link_to company do %>
+          <div class="box_r">
+            <div class="row">
+              <div class="col-4">
+                <%= company.name %>
+              </div>
+              <div class="col-4">
+                <%= company.job %>
+              </div>
+              <div class="col-4">
+                <p>一次選考</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <p>志望度：</p>
+              </div>
+              <div class="col-8">
+                <p>次の選考</p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<br>
 
-<%= link_to 'New Company', new_company_path %>
+
