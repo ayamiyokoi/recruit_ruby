@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_09_02_001502) do
   create_table "companies", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
-    t.string "media"
+    t.integer "media"
     t.string "job"
     t.text "detail"
     t.datetime "created_at", null: false

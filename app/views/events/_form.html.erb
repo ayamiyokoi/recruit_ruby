@@ -12,18 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :company_id %>
     <%= form.text_field :company_id %>
   </div>
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.number_field :name %>
+    <%= form.select :name, Event.names.keys.to_a, {} %>
   </div>
 
   <div class="field">
@@ -33,7 +28,7 @@
 
   <div class="field">
     <%= form.label :is_passed %>
-    <%= form.number_field :is_passed %>
+    <%= form.select :is_passed, Event.is_passeds.keys.to_a, {} %>
   </div>
 
   <div class="actions">

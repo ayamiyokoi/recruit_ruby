@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :media %>
-    <%= form.text_field :media %>
+    <%= form.select :media, Company.media.keys.to_a, {} %>
   </div>
 
   <div class="field">
