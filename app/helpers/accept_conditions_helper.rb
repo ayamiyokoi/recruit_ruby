@@ -1,0 +1,2 @@
+module AcceptConditionsHelper
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  accept_condition: one
+  accept: 1
+
+two:
+  company: two
+  accept_condition: two
+  accept: 1

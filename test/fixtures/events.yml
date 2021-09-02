@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  company: one
+  name: 1
+  date: 2021-09-02 00:02:17
+  is_passed: 1
+
+two:
+  user: two
+  company: two
+  name: 1
+  date: 2021-09-02 00:02:17
+  is_passed: 1
