@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root :to => 'companies#index'
   resources :checks
   resources :accept_conditions
   resources :events
