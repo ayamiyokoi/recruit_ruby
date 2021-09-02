@@ -14,3 +14,19 @@
  *= require_self
  */
 @import "bootstrap";
+
+footer{
+  background-color: red;
+}
+
+footer ul{
+  display: flex;
+  width: 300px;
+  margin: auto;
+}
+
+footer li{
+  list-style: none;
+  margin: 10px;
+  font-size: 10px;
+}

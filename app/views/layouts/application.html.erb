@@ -24,11 +24,20 @@
     <% end %>
     <%= yield %>
     <footer>
-      <%= link_to "応募リスト", companies_path %>
-      <%= link_to "データ", "#"%>
-      <%= link_to "イベント一覧", events_path %>
-      <%= link_to "条件", accept_conditions_path %>
-      
+      <ul>
+        <li>
+          <%= link_to "応募リスト", companies_path %>
+        </li>
+        <li>
+          <%= link_to "データ", "#"%>
+        </li>
+        <li>
+          <%= link_to "イベント一覧", events_path %>
+        </li>
+        <li>
+          <%= link_to "条件", accept_conditions_path %>
+        </li>
+      </ul>
     </footer>
   </body>
 </html>
