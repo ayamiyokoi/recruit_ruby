@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
+    <%= form.select :company_id, Company.where(user_id: current_user.id).map{|t| [t.name, t.id]} %>
   </div>
 
   <div class="field">

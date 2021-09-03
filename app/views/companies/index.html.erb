@@ -6,34 +6,6 @@
       <h1>応募リスト</h1>
       <hr>
       <%= link_to '応募企業の登録', new_company_path, class: "btn btn-primary" %>
-
-      <!--<table>-->
-      <!--  <thead>-->
-      <!--    <tr>-->
-      <!--      <th>User</th>-->
-      <!--      <th>Name</th>-->
-      <!--      <th>Media</th>-->
-      <!--      <th>Job</th>-->
-      <!--      <th>Detail</th>-->
-      <!--      <th colspan="3"></th>-->
-      <!--    </tr>-->
-      <!--  </thead>-->
-
-      <!--  <tbody>-->
-      <!--    <% @companies.each do |company| %>-->
-      <!--      <tr>-->
-      <!--        <td><%= company.user %></td>-->
-      <!--        <td><%= company.name %></td>-->
-      <!--        <td><%= company.media %></td>-->
-      <!--        <td><%= company.job %></td>-->
-      <!--        <td><%= company.detail %></td>-->
-      <!--        <td><%= link_to 'Show', company %></td>-->
-      <!--        <td><%= link_to 'Edit', edit_company_path(company) %></td>-->
-      <!--        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-      <!--      </tr>-->
-      <!--    <% end %>-->
-      <!--  </tbody>-->
-      <!--</table>-->
       <% @companies.each do |company| %>
         <%= link_to company do %>
           <div class="box_r">
@@ -45,16 +17,28 @@
                 <%= company.job %>
               </div>
               <div class="col-4">
-                <p>一次選考</p>
+
               </div>
             </div>
             <div class="row">
+              <% if Check.where(company_id: company.id).exists? %>
               <div class="col-4">
                 <p>志望度：</p>
+                <!--1*AcceptCondition.where(user_id: current_user.id, importance: low).count-->
+                <!--+ 2*AcceptCondition.where(user_id: current_user.id, importance: medium).count-->
+                <!--+ 3*AcceptCondition.where(user_id: current_user.id, importance: high).count-->
+
+                <!--1*Check.where(user_id: current_user.id, importance: low).count-->
+                <!--+ 2*Check.where(user_id: current_user.id, importance: medium).count-->
+                <!--+ 3*Check.where(user_id: current_user.id, importance: high).count-->
               </div>
+              <% end %>
+              <% if Event.where(company_id: company.id).exists? %>
+              <% @company_event = Event.where(company_id: company.id).last %>
               <div class="col-8">
-                <p>次の選考</p>
+                <p>次の選考:<%= @company_event.name %> 日時:<%= @company_event.date%></p>
               </div>
+              <% end %>
             </div>
           </div>
         <% end %>

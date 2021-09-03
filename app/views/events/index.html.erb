@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+    
       <th>Company</th>
       <th>Name</th>
       <th>Date</th>
@@ -17,8 +17,8 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.user %></td>
-        <td><%= event.company %></td>
+       
+        <td><%= event.company.name %></td>
         <td><%= event.name %></td>
         <td><%= event.date %></td>
         <td><%= event.is_passed %></td>

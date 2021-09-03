@@ -6,10 +6,6 @@ class AcceptConditionsController < ApplicationController
     @accept_conditions = AcceptCondition.all
   end
 
-  # GET /accept_conditions/1 or /accept_conditions/1.json
-  def show
-  end
-
   # GET /accept_conditions/new
   def new
     @accept_condition = AcceptCondition.new
@@ -22,11 +18,12 @@ class AcceptConditionsController < ApplicationController
   # POST /accept_conditions or /accept_conditions.json
   def create
     @accept_condition = AcceptCondition.new(accept_condition_params)
+    @accept_condition.user_id = current_user.id
 
     respond_to do |format|
       if @accept_condition.save
-        format.html { redirect_to @accept_condition, notice: "Accept condition was successfully created." }
-        format.json { render :show, status: :created, location: @accept_condition }
+        format.html { redirect_to accept_conditions_path, notice: "Accept condition was successfully created." }
+        format.json { render :index, status: :created, location: @accept_condition }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @accept_condition.errors, status: :unprocessable_entity }
@@ -38,8 +35,8 @@ class AcceptConditionsController < ApplicationController
   def update
     respond_to do |format|
       if @accept_condition.update(accept_condition_params)
-        format.html { redirect_to @accept_condition, notice: "Accept condition was successfully updated." }
-        format.json { render :show, status: :ok, location: @accept_condition }
+        format.html { redirect_to accept_conditions_path, notice: "Accept condition was successfully updated." }
+        format.json { render :index, status: :ok, location: @accept_condition }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @accept_condition.errors, status: :unprocessable_entity }

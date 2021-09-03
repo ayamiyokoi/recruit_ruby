@@ -1,29 +1,31 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @event.user %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1><%= link_to '<', events_path %> イベント詳細</h1>
 
-<p>
-  <strong>Company:</strong>
-  <%= @event.company %>
-</p>
+      <p id="notice"><%= notice %></p>
+      <p>
+        <strong>Company:</strong>
+        <%= @event.company.name %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+      <p>
+        <strong>Name:</strong>
+        <%= @event.name %>
+      </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @event.date %>
-</p>
+      <p>
+        <strong>Date:</strong>
+        <%= @event.date %>
+      </p>
 
-<p>
-  <strong>Is passed:</strong>
-  <%= @event.is_passed %>
-</p>
+      <p>
+        <strong>Is passed:</strong>
+        <%= @event.is_passed %>
+      </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+      <%= link_to '編集', edit_event_path(@event), class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
