@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12">
       <p id="notice"><%= notice %></p>
-      
+
       <h1><%= link_to '<', companies_path %>     <%= @company.name %></h1>
       <hr>
       <div class="box_r">
@@ -37,15 +37,15 @@
       </p>
       <p><strong>会社メモ</strong></p>
       <p class="box_s">
-        
+
         <%= @company.detail %>
       </p>
-      
+
       <%= link_to '編集', edit_company_path(@company), class: "btn btn-success" %>
       <% if Check.where(company_id: @company.id).exists? %>
-        <%= link_to '志望度チェック確認', check_path(Check.where(company_id: @company.id).id), class: "btn btn-success" %>
+        <%= link_to '志望度チェック確認', company_checks_path(company_id: params[:id]), class: "btn btn-success" %>
       <% else %>
-        <%= link_to '志望度チェック新規登録', new_check_path, class: "btn btn-success" %>
+        <%= link_to '志望度チェック新規登録', new_company_check_path(company_id: params[:id]), class: "btn btn-success" %>
       <% end %>
     </div>
   </div>

@@ -1,5 +1,9 @@
-<h1>New Check</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1><%= link_to '<', company_path(id: params[:company_id]) %><%= @company.name %>志望度チェック</h1>
 
-<%= render 'form', check: @check %>
-
-<%= link_to 'Back', checks_path %>
+      <%= render 'form', company: @company, check: @check %>
+    </div>
+  </div>
+</div>

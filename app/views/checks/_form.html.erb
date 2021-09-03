@@ -1,32 +1,33 @@
-<%= form_with(model: check, local: true) do |form| %>
-  <% if check.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(check.errors.count, "error") %> prohibited this check from being saved:</h2>
 
-      <ul>
-      <% check.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <%= form_with(model: [company,check], local: true) do |form| %>
+    <% if check.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(check.errors.count, "error") %> prohibited this check from being saved:</h2>
+
+        <ul>
+        <% check.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <!--<div class="field">-->
+    <!--  <%= form.label :accept_condition_id %>-->
+    <!--  <%= form.hidden_field :accept_condition_id, :value => accept_condition.id %>-->
+    <!--  <%= accept_condition.content %>-->
+
+    <!--</div>-->
+
+    <div class="field">
+      <%= form.label :accept %>
+      <%= form.select :accept, Check.accepts.keys.to_a, {} %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :accept_condition_id %>
-    <%= form.text_field :accept_condition_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :accept %>
-    <%= form.number_field :accept %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+
 <% end %>

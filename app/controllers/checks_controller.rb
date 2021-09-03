@@ -3,7 +3,8 @@ class ChecksController < ApplicationController
 
   # GET /checks or /checks.json
   def index
-    @checks = Check.all
+    @checks = Check.where(company_id: params[:company_id])
+    @company = Company.find(params[:company_id])
   end
 
   # GET /checks/1 or /checks/1.json
@@ -13,20 +14,26 @@ class ChecksController < ApplicationController
   # GET /checks/new
   def new
     @check = Check.new
+    @company = Company.find(params[:company_id])
+    @accept_conditions = AcceptCondition.where(user_id: current_user.id)
   end
 
   # GET /checks/1/edit
   def edit
+    @company = Company.find(params[:company_id])
+    @accept_conditions = AcceptCondition.where(user_id: current_user.id)
   end
 
   # POST /checks or /checks.json
   def create
+    @accept_conditions = AcceptCondition.where(user_id: current_user.id)
+    @company = Company.find(params[:company_id])
     @check = Check.new(check_params)
-
+    @check.company_id = params[:company_id]
     respond_to do |format|
       if @check.save
-        format.html { redirect_to @check, notice: "Check was successfully created." }
-        format.json { render :show, status: :created, location: @check }
+        format.html { redirect_to company_checks_path(company_id: params[:company_id]), notice: "Check was successfully created." }
+        format.json { redirect_to company_checks_path(company_id: params[:company_id]), status: :created, location: @check }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @check.errors, status: :unprocessable_entity }
@@ -36,10 +43,12 @@ class ChecksController < ApplicationController
 
   # PATCH/PUT /checks/1 or /checks/1.json
   def update
+
+
     respond_to do |format|
       if @check.update(check_params)
-        format.html { redirect_to @check, notice: "Check was successfully updated." }
-        format.json { render :show, status: :ok, location: @check }
+        format.html { redirect_to company_checks_path(company_id: params[:company_id]), notice: "Check was successfully updated." }
+        format.json { render redirect_to company_checks_path(company_id: params[:company_id]), status: :ok, location: @check }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @check.errors, status: :unprocessable_entity }

@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
-    
+
   end
 
   # GET /companies/1/edit
@@ -24,9 +24,17 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     @company.user_id = current_user.id
+    @accept_conditions = AcceptCondition.where(user_id: current_user.id)
 
     respond_to do |format|
       if @company.save
+        @accept_conditions.each do |accept_condition|
+          check = Check.new
+          check.company_id = @company.id
+          check.accept_condition_id = accept_condition.id
+          check.accept = 'no_evidence'
+          check.save
+        end
         format.html { redirect_to @company, notice: "Company was successfully created." }
         format.json { render :show, status: :created, location: @company }
       else
