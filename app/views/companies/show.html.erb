@@ -22,8 +22,13 @@
             <p>志望度：</p>
           </div>
           <div class="col-8">
-            <p>次の選考</p>
-          </div>
+           <% if Event.where(company_id: @company.id).exists? %>
+             <% @company_event = Event.where(company_id: @company.id).last %>
+             <p>次の選考:<%= @company_event.name %> 日時:<%= @company_event.date%></p>
+           <% else %>
+             <p>次の選考:未設定</p>
+           <% end %>
+         </div>
         </div>
       </div>
       <p>
@@ -37,7 +42,11 @@
       </p>
       
       <%= link_to '編集', edit_company_path(@company), class: "btn btn-success" %>
-      
+      <% if Check.where(company_id: @company.id).exists? %>
+        <%= link_to '志望度チェック確認', check_path(Check.where(company_id: @company.id).id), class: "btn btn-success" %>
+      <% else %>
+        <%= link_to '志望度チェック新規登録', new_check_path, class: "btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </div>
