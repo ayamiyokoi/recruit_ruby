@@ -1,38 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Events</h1>
-
-<table>
-  <thead>
-    <tr>
-    
-      <th>Company</th>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Is passed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-       
-        <td><%= event.company.name %></td>
-        <td><%= event.name %></td>
-        <td><%= event.date %></td>
-        <td><%= event.is_passed %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
 <div class="container">
   <div class="row">
     <div class="col-12">
@@ -42,28 +7,33 @@
       <hr>
       <%= link_to 'イベントの登録', new_event_path, class: "btn btn-primary" %>
       <% @companies.each do |company| %>
-        <%= link_to company do %>
-          <div class="box_r">
-            <div class="row">
-              <div class="col-4">
-                <%= company.name %>
+        <% if Event.where(company_id: company.id).exists? %>
+          <%= link_to company do %>
+            <div class="box_r">
+              <div class="row">
+                <div class="col-4">
+                  <%= company.name %>
+                </div>
+                <div class="col-4">
+                  <%= company.job %>
+                </div>
+                <div class="col-4">
+                  <p>一次選考</p>
+                </div>
               </div>
-              <div class="col-4">
-                <%= company.job %>
-              </div>
-              <div class="col-4">
-                <p>一次選考</p>
+              <div class="row">
+                <div class="col-4">
+                  <p>志望度：</p>
+                </div>
+                
+                <% @company_event = Event.where(company_id: company.id).last %>
+                <div class="col-8">
+                  <p>次の選考:<%= @company_event.name %> 日時:<%= @company_event.date%></p>
+                </div>
+                
               </div>
             </div>
-            <div class="row">
-              <div class="col-4">
-                <p>志望度：</p>
-              </div>
-              <div class="col-8">
-                <p>次の選考</p>
-              </div>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
