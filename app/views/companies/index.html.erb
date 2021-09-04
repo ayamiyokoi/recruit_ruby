@@ -21,12 +21,46 @@
               </div>
             </div>
             <div class="row">
-              
+
               <div class="col-4">
                 <% if Check.where(company_id: company.id).exists? %>
                   <p>志望度：</p>
+                  <% total = 0 %>
+                  <% point = 0 %>
+                  <% AcceptCondition.where(user_id: current_user.id).each do |accept_condition| %>
+                    <% if accept_condition.importance == 'low' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
+                        <% point ++ %>
+                        <% total ++ %>
+
+                    <% elsif accept_condition.importance == 'low' %>
+                      <% total ++ %>
+
+
+
+                    <% elsif accept_condition.importance == 'medium' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
+                      <% total += 2 %>
+                      <% point += 2 %>
+                    <% elsif accept_condition.importance == 'medium' %>
+                      <% total += 2 %>
+
+                    <% elsif accept_condition.importance == 'high' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
+                      <% total += 3 %>
+                      <% point += 3 %>
+                    <% else %>
+                      <% total += 3 %>
+                    <% end %>
+
+
+
+                  <% end %>
+          
+                  <%= 100*point/total %>%
+
                 <% else %>
                   <p>志望度:未設定</p>
+
+
+
 
                 <!--1*AcceptCondition.where(user_id: current_user.id, importance: low).count-->
                 <!--+ 2*AcceptCondition.where(user_id: current_user.id, importance: medium).count-->
@@ -37,7 +71,7 @@
                 <!--+ 3*Check.where(user_id: current_user.id, importance: high).count-->
                 <% end %>
               </div>
-            
+
 
               <div class="col-8">
                 <% if Event.where(company_id: company.id).exists? %>
@@ -55,6 +89,3 @@
     </div>
   </div>
 </div>
-
-
-
