@@ -24,7 +24,7 @@
 
               <div class="col-4">
                 <% if Check.where(company_id: company.id).exists? %>
-                  <p>志望度：</p>
+
                   <% total = 0 %>
                   <% point = 0 %>
                   <% AcceptCondition.where(user_id: current_user.id).each do |accept_condition| %>
@@ -53,8 +53,8 @@
 
 
                   <% end %>
-          
-                  <%= 100*point/total %>%
+
+                  <p>志望度：<%= 100*point/total %>%</p>
 
                 <% else %>
                   <p>志望度:未設定</p>
