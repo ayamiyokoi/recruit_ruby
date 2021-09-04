@@ -8,7 +8,7 @@
       <%= link_to 'イベントの登録', new_event_path, class: "btn btn-primary" %>
       <% @companies.each do |company| %>
         <% if Event.where(company_id: company.id).exists? %>
-          <%= link_to company do %>
+          <%= link_to event_path( do %>
             <div class="box_r">
               <div class="row">
                 <div class="col-4">
