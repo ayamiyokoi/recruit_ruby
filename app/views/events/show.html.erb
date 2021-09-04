@@ -12,7 +12,7 @@
 
       <p>
         <strong>Name:</strong>
-        <%= @event.name %>
+        <%= @event.name_i18n  %>
       </p>
 
       <p>
@@ -22,7 +22,7 @@
 
       <p>
         <strong>Is passed:</strong>
-        <%= @event.is_passed %>
+        <%= @event.is_passed_i18n  %>
       </p>
 
       <%= link_to '編集', edit_event_path(@event), class: "btn btn-success" %>

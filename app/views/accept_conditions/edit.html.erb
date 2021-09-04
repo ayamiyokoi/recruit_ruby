@@ -1,6 +1,15 @@
-<h1>Editing Accept Condition</h1>
+<!--<h1>Editing Accept Condition</h1>-->
 
-<%= render 'form', accept_condition: @accept_condition %>
+<!--<%= render 'form', accept_condition: @accept_condition %>-->
 
-<%= link_to 'Show', @accept_condition %> |
-<%= link_to 'Back', accept_conditions_path %>
+<!--<%= link_to 'Show', @accept_condition %> |-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1><%= link_to '<', accept_conditions_path %>     内定承諾条件編集</h1>
+      <%= render 'form', accept_condition: @accept_condition %>
+    </div>
+  </div>
+</div>
+

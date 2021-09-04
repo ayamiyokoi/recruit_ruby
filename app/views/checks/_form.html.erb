@@ -14,7 +14,7 @@
 
     <div class="field">
       <%= form.label :accept %>
-      <%= form.select :accept, Check.accepts.keys.to_a, {}, class: "form-control" %>
+      <%= form.select :accept, Check.accepts.keys.map {|k| [I18n.t("enums.check.accepts.#{k}"), k]}, class: "form-control" %>
     </div>
 
 

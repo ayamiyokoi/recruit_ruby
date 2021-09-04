@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :media %>
-    <%= form.select :media, Company.media.keys.to_a, {}, class: "form-control" %>
+    <%= form.select :media, Company.media.keys.map {|k| [I18n.t("enums.company.medias.#{k}"), k]}, class: "form-control" %>
   </div>
 
   <div class="field">

@@ -19,7 +19,7 @@
 
   <div class="field">
     <%= form.label :importance %>
-    <%= form.select :importance, AcceptCondition.importances.keys.to_a, {}, class: "form-control" %>
+    <%= form.select :importance, AcceptCondition.importances.keys.map {|k| [I18n.t("enums.accept_condition.importances.#{k}"), k]}, class: "form-control" %>
   </div>
 
   <div class="actions">

@@ -13,12 +13,13 @@
 
   <div class="field">
     <%= form.label :company_id %>
-    <%= form.select :company_id, Company.where(user_id: current_user.id).map{|t| [t.name, t.id]}, class: "form-control" %>
+    <%= form.select :company_id, Company.where(user_id: current_user.id).map{|t| [t.name, t.id]} %>
   </div>
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.select :name, Event.names.keys.to_a, {}, class: "form-control" %>
+    <%= form.select :name, Event.names.keys.map {|k| [I18n.t("enums.event.names.#{k}"), k]}, class: "form-control" %>
+
   </div>
 
   <div class="field">
@@ -28,7 +29,7 @@
 
   <div class="field">
     <%= form.label :is_passed %>
-    <%= form.select :is_passed, Event.is_passeds.keys.to_a, {}, class: "form-control" %>
+    <%= form.select :is_passed, Event.is_passeds.keys.map {|k| [I18n.t("enums.event.is_passeds.#{k}"), k]}, class: "form-control" %>
   </div>
 
   <div class="actions">

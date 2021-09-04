@@ -1,4 +1,43 @@
 ja:
+  enums:
+    event:
+      names:
+        introduction: 説明会
+        screening_process: 書類選考
+        first_interview: 一次面接
+        second_interview: 二次面接
+        third_interview: 三次面接
+        fourth_interview: 四次面接
+        fifth_interview: 五次面接
+        last_interview: 最終面接
+        talk: 面談
+        other: その他
+      is_passeds:
+        no_result: -----
+        passed: 通過
+        droped: 落選
+    company:
+      medias:
+        unselected: 未選択
+        mynavi: マイナビ
+        recnavi: リクルート
+        type: Type(タイプ)
+        doda: doda(デューダ)
+        green: green(グリーン)
+        wantedly: wantedly(ウォンテッドリー)
+        type: Type(タイプ)
+        dmm: DMM
+        other: その他
+    check:
+      accepts:
+        no_evidence: -----
+        yes: 条件を満たす
+        no: 条件を満たさない
+    accept_condition:
+      importances:
+        low: 低
+        medium: 中
+        high: 高
 
   activerecord:
     errors:
@@ -23,6 +62,8 @@ ja:
         name: イベント名
         date: 日時
         is_passed: ステータス
+
+
       company:
         media: 応募媒体
         name: 企業名
