@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "例）株式会社○○○○" %>
   </div>
 
   <div class="field">
     <%= form.label :media %>
-    <%= form.select :media, Company.media.keys.to_a, {} %>
+    <%= form.select :media, Company.media.keys.to_a, {}, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :job %>
-    <%= form.text_field :job %>
+    <%= form.text_field :job, class: "form-control", placeholder: "例）サーバーサイドエンジニア" %>
   </div>
 
   <div class="field">
     <%= form.label :detail %>
-    <%= form.text_area :detail %>
+    <%= form.text_area :detail, class: "form-control", placeholder: "例）創業：1997年" %>
   </div>
 
   <div class="actions">

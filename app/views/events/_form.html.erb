@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :company_id %>
-    <%= form.select :company_id, Company.where(user_id: current_user.id).map{|t| [t.name, t.id]} %>
+    <%= form.select :company_id, Company.where(user_id: current_user.id).map{|t| [t.name, t.id]}, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.select :name, Event.names.keys.to_a, {} %>
+    <%= form.select :name, Event.names.keys.to_a, {}, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.datetime_select :date %>
+    <%= form.datetime_select :date, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :is_passed %>
-    <%= form.select :is_passed, Event.is_passeds.keys.to_a, {} %>
+    <%= form.select :is_passed, Event.is_passeds.keys.to_a, {}, class: "form-control" %>
   </div>
 
   <div class="actions">

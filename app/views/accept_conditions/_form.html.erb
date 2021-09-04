@@ -14,12 +14,12 @@
 
   <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class: "form-control", placeholder: "例）残業時間30時間未満" %>
   </div>
 
   <div class="field">
     <%= form.label :importance %>
-    <%= form.select :importance, AcceptCondition.importances.keys.to_a, {} %>
+    <%= form.select :importance, AcceptCondition.importances.keys.to_a, {}, class: "form-control" %>
   </div>
 
   <div class="actions">
