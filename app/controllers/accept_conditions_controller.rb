@@ -19,9 +19,17 @@ class AcceptConditionsController < ApplicationController
   def create
     @accept_condition = AcceptCondition.new(accept_condition_params)
     @accept_condition.user_id = current_user.id
+    @companies = Company.where(user_id: current_user.id)
 
     respond_to do |format|
       if @accept_condition.save
+         @companies.each do |company|
+          check = Check.new
+          check.company_id = company.id
+          check.accept_condition_id = @accept_condition.id
+          check.accept = 'no_evidence'
+          check.save
+        end
         format.html { redirect_to accept_conditions_path, notice: "Accept condition was successfully created." }
         format.json { render :index, status: :created, location: @accept_condition }
       else

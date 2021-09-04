@@ -5,7 +5,20 @@
 
       <h1>通過率データ</h1>
       <hr>
-      <table class="table">
+ <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a href="#contents1" class="nav-link active" data-toggle="tab">すべて</a>
+    </li>
+    <li class="nav-item">
+      <a href="#contents2" class="nav-link" data-toggle="tab">タブ2</a>
+    </li>
+    <li class="nav-item">
+      <a href="#contents3" class="nav-link" data-toggle="tab">タブ3</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="contents1" class="tab-pane active">
+        <table class="table">
 
           <tr>
             <th>書類通過率</th>
@@ -17,26 +30,35 @@
           </tr>
           <tr>
             <th>2次選考通過率</th>
-            <td></td>
+            <td><%= @second_interview %></td>
           </tr>
           <tr>
             <th>3次選考通過率</th>
-            <td></td>
+            <td><%= @third_interview %></td>
           </tr>
           <tr>
             <th>4次選考通過率</th>
-            <td></td>
+            <td><%= @fourth_interview %></td>
           </tr>
           <tr>
             <th>5次選考通過率</th>
-            <td></td>
+            <td><%= @fifth_interview %></td>
           </tr>
           <tr>
             <th>最終選考通過率</th>
-            <td></td>
+            <td><%= @last_interview %></td>
           </tr>
 
       </table>
+    </div>
+    <div id="contents2" class="tab-pane">
+        <p>タブ2のコンテンツ</p>
+    </div>
+    <div id="contents3" class="tab-pane">
+        <p>タブ3のコンテンツ</p>
+    </div>
+</div>
+      
 
     </div>
   </div>
