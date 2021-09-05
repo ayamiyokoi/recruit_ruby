@@ -10,12 +10,12 @@
         <div class="box_r">
           <div class="row">
             <div class="col-12">
-              <%= accept_condition.content %>
+              内定承諾条件：<%= accept_condition.content %>
             </div>
           </div>
           <div class="row">
             <div class="col-4">
-              <%= accept_condition.importance %>
+              重要度：<%= accept_condition.importance %>
             </div>
             <div class="col-4">
               <%= link_to '編集', edit_accept_condition_path(accept_condition), class: "btn btn-success" %>

@@ -24,7 +24,7 @@
           <div class="col-8">
            <% if Event.where(company_id: @company.id).exists? %>
              <% @company_event = Event.where(company_id: @company.id).last %>
-             <p>次の選考:<%= @company_event.name %> 日時:<%= @company_event.date%></p>
+             <p>次の選考:<%= @company_event.name %> 日時:<%= l @company_event.date, format: :long %></p>
            <% else %>
              <p>次の選考:未設定</p>
            <% end %>
@@ -32,8 +32,8 @@
         </div>
       </div>
       <p>
-        <strong>Media:</strong>
-        <%= @company.media %>
+        <strong>応募媒体：</strong>
+        <%= @company.media_i18n %>
       </p>
       <p><strong>会社メモ</strong></p>
       <p class="box_s">
@@ -44,8 +44,10 @@
       <%= link_to '編集', edit_company_path(@company), class: "btn btn-success" %>
       <% if Check.where(company_id: @company.id).exists? %>
         <%= link_to '志望度チェック確認', company_checks_path(company_id: params[:id]), class: "btn btn-success" %>
-      <% else %>
+      <% elsif AcceptCondition.where(user_id: current_user.id).exists? %>
+      <!--これいらん気がする-->
         <%= link_to '志望度チェック新規登録', new_company_check_path(company_id: params[:id]), class: "btn btn-success" %>
+      <% else %>
       <% end %>
     </div>
   </div>

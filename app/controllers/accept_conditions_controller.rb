@@ -3,7 +3,7 @@ class AcceptConditionsController < ApplicationController
 
   # GET /accept_conditions or /accept_conditions.json
   def index
-    @accept_conditions = AcceptCondition.all
+    @accept_conditions = AcceptCondition.where(user_id: current_user.id)
   end
 
   # GET /accept_conditions/new

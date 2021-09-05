@@ -7,10 +7,6 @@ class ChecksController < ApplicationController
     @company = Company.find(params[:company_id])
   end
 
-  # GET /checks/1 or /checks/1.json
-  def show
-  end
-
   # GET /checks/new
   def new
     @check = Check.new

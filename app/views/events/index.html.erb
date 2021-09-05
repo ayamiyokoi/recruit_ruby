@@ -7,7 +7,7 @@
       <hr>
       <%= link_to 'イベントの登録', new_event_path, class: "btn btn-primary" %>
       <% @events .each do |event| %>
-        
+
           <%= link_to event do %>
             <div class="box_r">
               <div class="row">
@@ -25,14 +25,14 @@
                 <div class="col-4">
                   <p>志望度：</p>
                 </div>
-                
+
                 <div class="col-8">
-                  <p>次の選考:<%= event.name %> 日時:<%= event.date %></p>
+                  <p>次の選考:<%= event.name %> 日時:<%= l event.date, format: :long %></p>
                 </div>
-                
+
               </div>
             </div>
-          
+
         <% end %>
       <% end %>
     </div>

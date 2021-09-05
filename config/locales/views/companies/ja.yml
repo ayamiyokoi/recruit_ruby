@@ -1,0 +1,10 @@
+ja:
+  companies:
+    # index:
+    #   title: 'ユーザ一覧'
+    show:
+      # 引数の指定もできる。
+      media: 応募媒体
+    # edit:
+    #   # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
+    #   title: '%{user_name}さんのユーザ情報を編集'

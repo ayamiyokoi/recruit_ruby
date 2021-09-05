@@ -59,16 +59,6 @@
                 <% else %>
                   <p>志望度:未設定</p>
 
-
-
-
-                <!--1*AcceptCondition.where(user_id: current_user.id, importance: low).count-->
-                <!--+ 2*AcceptCondition.where(user_id: current_user.id, importance: medium).count-->
-                <!--+ 3*AcceptCondition.where(user_id: current_user.id, importance: high).count-->
-
-                <!--1*Check.where(user_id: current_user.id, importance: low).count-->
-                <!--+ 2*Check.where(user_id: current_user.id, importance: medium).count-->
-                <!--+ 3*Check.where(user_id: current_user.id, importance: high).count-->
                 <% end %>
               </div>
 
@@ -76,7 +66,7 @@
               <div class="col-8">
                 <% if Event.where(company_id: company.id).exists? %>
               <% @company_event = Event.where(company_id: company.id).last %>
-                <p>次の選考:<%= @company_event.name %> 日時:<%= @company_event.date%></p>
+                <p>次の選考:<%= @company_event.name %> 日時:<%= l @company_event.date, format: :long %></p>
                 <% else %>
                 <p>次の選考:未設定</p>
                 <% end %>
