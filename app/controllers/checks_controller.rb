@@ -72,3 +72,4 @@ class ChecksController < ApplicationController
       params.require(:check).permit(:company_id, :accept_condition_id, :accept)
     end
 end
+

@@ -8,6 +8,21 @@ class DatasController < ApplicationController
     else
       @screening_process = 100*screening_process_passed/screening_process
     end
+    # processes = Event.where(user_id: current_user.id)
+
+    # processes.each do |process|
+    #   mother_0 = 0
+    #   child_0 = 0
+    #   if process.name == "screening_process" && process.is_passed == "passed"
+    #     mother_0 += 1
+    #     child_0  += 1
+    #   elsif process.name == "screening_process"
+    #     mother_0 += 1
+    #   end
+    #     @screening_process = 100*child_0/mother_0
+
+
+    # end
 
     # 1次選考
     first_interview = Event.where(name: 2, user_id: current_user.id).count
