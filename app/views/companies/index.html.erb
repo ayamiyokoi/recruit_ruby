@@ -6,76 +6,24 @@
       <h1>応募リスト</h1>
       <hr>
       <%= link_to '応募企業の登録', new_company_path, class: "btn btn-primary" %>
-      <% @companies.each do |company| %>
-        <%= link_to company do %>
-          <div class="box_r">
-            <div class="row">
-              <div class="col-4">
-                <%= company.name %>
-              </div>
-              <div class="col-4">
-                <%= company.job %>
-              </div>
-              <div class="col-4">
-
-              </div>
-            </div>
-            <div class="row">
-
-              <div class="col-4">
-                <% if Check.where(company_id: company.id).exists? %>
-
-                  <% total = 0 %>
-                  <% point = 0 %>
-                  <% AcceptCondition.where(user_id: current_user.id).each do |accept_condition| %>
-                    <% if accept_condition.importance == 'low' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
-                      <% point += 1 %>
-                        <% total += 1 %>
-
-                    <% elsif accept_condition.importance == 'low' %>
-                      <% total += 1 %>
-
-
-
-                    <% elsif accept_condition.importance == 'medium' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
-                      <% total += 2 %>
-                      <% point += 2 %>
-                    <% elsif accept_condition.importance == 'medium' %>
-                      <% total += 2 %>
-
-                    <% elsif accept_condition.importance == 'high' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
-                      <% total += 3 %>
-                      <% point += 3 %>
-                    <% else %>
-                      <% total += 3 %>
-                    <% end %>
-
-
-
-                  <% end %>
-
-                  <p>志望度：<%= 100*point/total %>%</p>
-
-                <% else %>
-                  <p>志望度:未設定</p>
-
-                <% end %>
-              </div>
-
-
-              <div class="col-8">
-                <% if Event.where(company_id: company.id).exists? %>
-              <% @company_event = Event.where(company_id: company.id).last %>
-                <p>次の選考:<%= @company_event.name %> 日時:<%= l @company_event.date, format: :long %></p>
-                <% else %>
-                <p>次の選考:未設定</p>
-                <% end %>
-              </div>
-
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+      
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a href="#active" class="nav-link active" data-toggle="tab">選考中</a>
+        </li>
+        <li class="nav-item">
+          <a href="#done" class="nav-link" data-toggle="tab">選考終了</a>
+        </li>
+       
+      </ul>
+      <div class="tab-content">
+        <div id="active" class="tab-pane active">
+          <%= render 'list', companies: @companies %>
+        </div>
+        <div id="done" class="tab-pane">
+    
+        </div>
+      </div>
     </div>
   </div>
 </div>

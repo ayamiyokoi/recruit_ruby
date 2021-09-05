@@ -7,24 +7,24 @@
       <hr>
       <%= link_to '内定承諾条件の登録', new_accept_condition_path, class: "btn btn-primary" %>
       <% @accept_conditions.each do |accept_condition| %>
-        <div class="box_r">
-          <div class="row">
-            <div class="col-12">
-              内定承諾条件：<%= accept_condition.content %>
+        <%= link_to edit_accept_condition_path(accept_condition) do %>
+          <div class="box_r">
+            <div class="row">
+              <div class="col-12">
+                内定承諾条件：<%= accept_condition.content %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                重要度：<%= accept_condition.importance %>
+              </div>
+
+              <div class="col-4">
+                <%= link_to '削除', accept_condition, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger" %>
+              </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-4">
-              重要度：<%= accept_condition.importance %>
-            </div>
-            <div class="col-4">
-              <%= link_to '編集', edit_accept_condition_path(accept_condition), class: "btn btn-success" %>
-            </div>
-            <div class="col-4">
-              <%= link_to '削除', accept_condition, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-            </div>
-          </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
