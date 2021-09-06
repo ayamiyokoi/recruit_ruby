@@ -18,11 +18,10 @@
       </ul>
       <div class="tab-content">
         <div id="active" class="tab-pane active">
-          
           <%= render 'list', companies: @companies %>
         </div>
         <div id="done" class="tab-pane">
-
+          <%= render 'list', companies: @companies_done %>
         </div>
       </div>
       <%= paginate @companies %>
