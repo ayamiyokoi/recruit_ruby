@@ -1,9 +1,10 @@
 class ChecksController < ApplicationController
   before_action :set_check, only: %i[ show edit update destroy ]
+  PER_PAGE = 10
 
   # GET /checks or /checks.json
   def index
-    @checks = Check.where(company_id: params[:company_id])
+    @checks = Check.where(company_id: params[:company_id]).page(params[:page]).per(PER_PAGE)
     @company = Company.find(params[:company_id])
   end
 

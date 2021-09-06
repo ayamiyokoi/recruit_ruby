@@ -51,27 +51,27 @@ class DatasController < ApplicationController
       @third_interview = 100*third_interview_passed/third_interview
     end
 
-     # 4次選考
-    fourth_interview = Event.where(name: 5, user_id: current_user.id).count
-    fourth_interview_passed = Event.where(name: 5, user_id: current_user.id, is_passed: 1).count
-    if fourth_interview == 0
-      @fourth_interview = 'データがありません'
-    else
-      @fourth_interview = 100*fourth_interview_passed/fourth_interview
-    end
+    # # 4次選考
+    # fourth_interview = Event.where(name: 5, user_id: current_user.id).count
+    # fourth_interview_passed = Event.where(name: 5, user_id: current_user.id, is_passed: 1).count
+    # if fourth_interview == 0
+    #   @fourth_interview = 'データがありません'
+    # else
+    #   @fourth_interview = 100*fourth_interview_passed/fourth_interview
+    # end
 
-     # 5次選考
-    fifth_interview = Event.where(name: 6, user_id: current_user.id).count
-    fifth_interview_passed = Event.where(name: 6, user_id: current_user.id, is_passed: 1).count
-    if fifth_interview == 0
-      @fifth_interview = 'データがありません'
-    else
-      @fifth_interview = 100*fifth_interview_passed/fifth_interview
-    end
+    # # 5次選考
+    # fifth_interview = Event.where(name: 6, user_id: current_user.id).count
+    # fifth_interview_passed = Event.where(name: 6, user_id: current_user.id, is_passed: 1).count
+    # if fifth_interview == 0
+    #   @fifth_interview = 'データがありません'
+    # else
+    #   @fifth_interview = 100*fifth_interview_passed/fifth_interview
+    # end
 
      #最終選考
-    last_interview = Event.where(name: 7, user_id: current_user.id).count
-    last_interview_passed = Event.where(name: 7, user_id: current_user.id, is_passed: 1).count
+    last_interview = Event.where(name: 5, user_id: current_user.id).count
+    last_interview_passed = Event.where(name: 5, user_id: current_user.id, is_passed: 1).count
     if last_interview == 0
       @last_interview = 'データがありません'
     else

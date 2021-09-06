@@ -1,9 +1,10 @@
 class AcceptConditionsController < ApplicationController
   before_action :set_accept_condition, only: %i[ show edit update destroy ]
+  PER_PAGE = 10
 
   # GET /accept_conditions or /accept_conditions.json
   def index
-    @accept_conditions = AcceptCondition.where(user_id: current_user.id)
+    @accept_conditions = AcceptCondition.where(user_id: current_user.id).page(params[:page]).per(PER_PAGE)
   end
 
   # GET /accept_conditions/new

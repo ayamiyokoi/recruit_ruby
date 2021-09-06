@@ -6,7 +6,7 @@
       <h1>応募リスト</h1>
       <hr>
       <%= link_to '応募企業の登録', new_company_path, class: "btn btn-primary" %>
-      
+
       <ul class="nav justify-content-center">
         <li class="nav-item">
           <a href="#active" class="nav-link active" data-toggle="tab">選考中</a>
@@ -14,16 +14,17 @@
         <li class="nav-item">
           <a href="#done" class="nav-link" data-toggle="tab">選考終了</a>
         </li>
-       
+
       </ul>
       <div class="tab-content">
         <div id="active" class="tab-pane active">
           <%= render 'list', companies: @companies %>
         </div>
         <div id="done" class="tab-pane">
-    
+
         </div>
       </div>
+      <%= paginate @companies %>
     </div>
   </div>
 </div>

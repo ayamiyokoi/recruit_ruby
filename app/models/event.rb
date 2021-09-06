@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   belongs_to :user
   belongs_to :company
 
-  enum name: { introduction: 0, screening_process: 1, first_interview: 2, second_interview: 3, third_interview: 4, fourth_interview: 5, fifth_interview: 6, last_interview: 7, talk: 8, other: 9}
+  enum name: { introduction: 0, screening_process: 1, first_interview: 2, second_interview: 3, third_interview: 4, last_interview: 5, talk: 6, other: 7}
   enum is_passed: { no_result: 0, passed: 1, droped: 2 }
   validates :name, {presence: true}
   validates :company_id, {presence: true}

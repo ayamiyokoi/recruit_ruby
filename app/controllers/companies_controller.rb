@@ -1,9 +1,10 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: %i[ show edit update destroy ]
+  PER_PAGE = 10
 
   # GET /companies or /companies.json
   def index
-    @companies = Company.where(user_id: current_user.id)
+    @companies = Company.where(user_id: current_user.id).page(params[:page]).per(PER_PAGE)
   end
 
   # GET /companies/1 or /companies/1.json

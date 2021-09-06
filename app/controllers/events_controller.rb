@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
   before_action :set_event, only: %i[ show edit update destroy ]
-
+  PER_PAGE = 10
   # GET /events or /events.json
   def index
-    @events = Event.where(user_id: current_user.id)
-    @companies = Company.all
+    @events = Event.where(user_id: current_user.id).page(params[:page]).per(PER_PAGE)
+    # @companies = Company.all
   end
 
   # GET /events/1 or /events/1.json
