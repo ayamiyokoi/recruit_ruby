@@ -35,43 +35,307 @@
     </li>
   </ul>
   <div class="tab-content">
-    <div id="contents1" class="tab-pane active">
+    <div id="contents0" class="tab-pane active">
       <%= render 'data',
       screening_process: @screening_process,
       first_interview: @first_interview,
       second_interview: @second_interview,
       third_interview: @third_interview,
-      fourth_interview: @fourth_interview,
-      fifth_interview: @fifth_interview,
       last_interview: @last_interview %>
 
     </div>
  <% i = 1 %>
       <% while i <= 8 do %>
-       <% screening_process = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 1}).count %>
+      <!--書類選考-->
+        <% screening_process = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 1}).count %>
+        <% screening_process_passed = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 1, is_passed: 1}).count %>
 
-      <% screening_process_passed = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 1, is_passed: 1}).count %>
+        <% if "#{i}" == 1 && screening_process == 0 %>
+          <% screening_process_1 = 'データがありません' %>
+        <% elsif "#{i}" == 1 %>
+          <% screening_process_1 = 100*screening_process_passed/screening_process %>
 
-   <% if screening_process == 0 %>
+        <% elsif "#{i}" == 2 && screening_process == 0 %>
+          <% screening_process_2 = 'データがありません' %>
+        <% elsif "#{i}" == 2 %>
+          <% screening_process_2 = 100*screening_process_passed/screening_process %>
 
-      <% "screening_process_#{i}" = 'データがありません' %>
-      <% byebug %>
-   <%  else %>
-     <% "screening_process_#{i}" = 100*screening_process_passed/screening_process %>
-    <% end %>
+        <% elsif "#{i}" == 3 && screening_process == 0 %>
+          <% screening_process_3 = 'データがありません' %>
+        <% elsif "#{i}" == 3 %>
+          <% screening_process_3 = 100*screening_process_passed/screening_process %>
+
+        <% elsif "#{i}" == 4 && screening_process == 0 %>
+          <% screening_process_4 = 'データがありません' %>
+        <% elsif "#{i}" == 4 %>
+          <% screening_process_4 = 100*screening_process_passed/screening_process %>
+
+        <% elsif "#{i}" == 5 && screening_process == 0 %>
+          <% screening_process_5 = 'データがありません' %>
+        <% elsif "#{i}" == 5 %>
+          <% screening_process_5 = 100*screening_process_passed/screening_process %>
+
+        <% elsif "#{i}" == 6 && screening_process == 0 %>
+          <% screening_process_6 = 'データがありません' %>
+        <% elsif "#{i}" == 6 %>
+          <% screening_process_6 = 100*screening_process_passed/screening_process %>
+
+        <% elsif "#{i}" == 7 && screening_process == 0 %>
+          <% screening_process_7 = 'データがありません' %>
+        <% elsif "#{i}" == 7 %>
+          <% screening_process_7 = 100*screening_process_passed/screening_process %>
+        <% elsif "#{i}" == 8 && screening_process == 0 %>
+          <% screening_process_8 = 'データがありません' %>
+        <% elsif "#{i}" == 8 %>
+          <% screening_process_8 = 100*screening_process_passed/screening_process %>
+        <% end %>
+
+      <!--一次選考-->
+        <% first_interview = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 2}).count %>
+        <% first_interview_passed = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 2, is_passed: 1}).count %>
+
+        <% if "#{i}" == 1 && first_interview == 0 %>
+          <% first_interview_1 = 'データがありません' %>
+        <% elsif "#{i}" == 1 %>
+          <% first_interview_1 = 100*first_interview_passed/first_interview %>
+
+        <% elsif "#{i}" == 2 && first_interview == 0 %>
+          <% first_interview_2 = 'データがありません' %>
+        <% elsif "#{i}" == 2 %>
+          <% first_interview_2 = 100*first_interview_passed/first_interview %>
+
+        <% elsif "#{i}" == 3 && first_interview == 0 %>
+          <% first_interview_3 = 'データがありません' %>
+        <% elsif "#{i}" == 3 %>
+          <% first_interview_3 = 100*first_interview_passed/first_interview %>
+
+        <% elsif "#{i}" == 4 && first_interview == 0 %>
+          <% first_interview_4 = 'データがありません' %>
+        <% elsif "#{i}" == 4 %>
+          <% first_interview_4 = 100*first_interview_passed/first_interview %>
+
+        <% elsif "#{i}" == 5 && first_interview == 0 %>
+          <% first_interview_5 = 'データがありません' %>
+        <% elsif "#{i}" == 5 %>
+          <% first_interview_5 = 100*first_interview_passed/first_interview %>
+
+        <% elsif "#{i}" == 6 && first_interview == 0 %>
+          <% first_interview_6 = 'データがありません' %>
+        <% elsif "#{i}" == 6 %>
+          <% first_interview_6 = 100*first_interview_passed/first_interview %>
+
+        <% elsif "#{i}" == 7 && first_interview == 0 %>
+          <% first_interview_7 = 'データがありません' %>
+        <% elsif "#{i}" == 7 %>
+          <% first_interview_7 = 100*first_interview_passed/first_interview %>
+
+        <% elsif "#{i}" == 8 && first_interview == 0 %>
+          <% first_interview_8 = 'データがありません' %>
+        <% elsif "#{i}" == 8 %>
+          <% first_interview_8 = 100*first_interview_passed/first_interview %>
+        <% end %>
+
+        <!--二次選考-->
+        <% second_interview = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 3}).count %>
+        <% second_interview_passed = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 3, is_passed: 1}).count %>
+
+        <% if "#{i}" == 1 && second_interview == 0 %>
+          <% second_interview_1 = 'データがありません' %>
+        <% elsif "#{i}" == 1 %>
+          <% second_interview_1 = 100*second_interview_passed/second_interview %>
+
+        <% elsif "#{i}" == 2 && second_interview == 0 %>
+          <% second_interview_2 = 'データがありません' %>
+        <% elsif "#{i}" == 2 %>
+          <% second_interview_2 = 100*second_interview_passed/second_interview %>
+
+        <% elsif "#{i}" == 3 && second_interview == 0 %>
+          <% second_interview_3 = 'データがありません' %>
+        <% elsif "#{i}" == 3 %>
+          <% second_interview_3 = 100*second_interview_passed/second_interview %>
+
+        <% elsif "#{i}" == 4 && second_interview == 0 %>
+          <% second_interview_4 = 'データがありません' %>
+        <% elsif "#{i}" == 4 %>
+          <% second_interview_4 = 100*second_interview_passed/second_interview %>
+
+        <% elsif "#{i}" == 5 && second_interview == 0 %>
+          <% second_interview_5 = 'データがありません' %>
+        <% elsif "#{i}" == 5 %>
+          <% second_interview_5 = 100*second_interview_passed/second_interview %>
+
+        <% elsif "#{i}" == 6 && second_interview == 0 %>
+          <% second_interview_6 = 'データがありません' %>
+        <% elsif "#{i}" == 6 %>
+          <% second_interview_6 = 100*second_interview_passed/second_interview %>
+
+        <% elsif "#{i}" == 7 && second_interview == 0 %>
+          <% second_interview_7 = 'データがありません' %>
+        <% elsif "#{i}" == 7 %>
+          <% second_interview_7 = 100*second_interview_passed/second_interview %>
+
+        <% elsif "#{i}" == 8 && second_interview == 0 %>
+          <% second_interview_8 = 'データがありません' %>
+        <% elsif "#{i}" == 8 %>
+          <% second_interview_8 = 100*second_interview_passed/second_interview %>
+        <% end %>
+
+        <!--3次選考-->
+        <% third_interview = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 4}).count %>
+        <% third_interview_passed = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 4, is_passed: 1}).count %>
+
+        <% if "#{i}" == 1 && third_interview == 0 %>
+          <% third_interview_1 = 'データがありません' %>
+        <% elsif "#{i}" == 1 %>
+          <% third_interview_1 = 100*third_interview_passed/third_interview %>
+
+        <% elsif "#{i}" == 2 && third_interview == 0 %>
+          <% third_interview_2 = 'データがありません' %>
+        <% elsif "#{i}" == 2 %>
+          <% third_interview_2 = 100*third_interview_passed/third_interview %>
+
+        <% elsif "#{i}" == 3 && third_interview == 0 %>
+          <% third_interview_3 = 'データがありません' %>
+        <% elsif "#{i}" == 3 %>
+          <% third_interview_3 = 100*third_interview_passed/third_interview %>
+
+        <% elsif "#{i}" == 4 && third_interview == 0 %>
+          <% third_interview_4 = 'データがありません' %>
+        <% elsif "#{i}" == 4 %>
+          <% third_interview_4 = 100*third_interview_passed/third_interview %>
+
+        <% elsif "#{i}" == 5 && third_interview == 0 %>
+          <% third_interview_5 = 'データがありません' %>
+        <% elsif "#{i}" == 5 %>
+          <% third_interview_5 = 100*third_interview_passed/third_interview %>
+
+        <% elsif "#{i}" == 6 && third_interview == 0 %>
+          <% third_interview_6 = 'データがありません' %>
+        <% elsif "#{i}" == 6 %>
+          <% third_interview_6 = 100*third_interview_passed/third_interview %>
+
+        <% elsif "#{i}" == 7 && third_interview == 0 %>
+          <% third_interview_7 = 'データがありません' %>
+        <% elsif "#{i}" == 7 %>
+          <% third_interview_7 = 100*third_interview_passed/third_interview %>
+
+        <% elsif "#{i}" == 8 && third_interview == 0 %>
+          <% third_interview_8 = 'データがありません' %>
+        <% elsif "#{i}" == 8 %>
+          <% third_interview_8 = 100*third_interview_passed/third_interview %>
+        <% end %>
+
+        <!--最終選考-->
+        <% last_interview = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 5}).count %>
+        <% last_interview_passed = Company.joins(:events).where(media: "#{i}", user_id: current_user.id, events: { name: 5, is_passed: 1}).count %>
+
+        <% if "#{i}" == 1 && last_interview == 0 %>
+          <% last_interview_1 = 'データがありません' %>
+        <% elsif "#{i}" == 1 %>
+          <% last_interview_1 = 100*last_interview_passed/last_interview %>
+
+        <% elsif "#{i}" == 2 && last_interview == 0 %>
+          <% last_interview_2 = 'データがありません' %>
+        <% elsif "#{i}" == 2 %>
+          <% last_interview_2 = 100*last_interview_passed/last_interview %>
+
+        <% elsif "#{i}" == 3 && last_interview == 0 %>
+          <% last_interview_3 = 'データがありません' %>
+        <% elsif "#{i}" == 3 %>
+          <% last_interview_3 = 100*last_interview_passed/last_interview %>
+
+        <% elsif "#{i}" == 4 && last_interview == 0 %>
+          <% last_interview_4 = 'データがありません' %>
+        <% elsif "#{i}" == 4 %>
+          <% last_interview_4 = 100*last_interview_passed/last_interview %>
+
+        <% elsif "#{i}" == 5 && last_interview == 0 %>
+          <% last_interview_5 = 'データがありません' %>
+        <% elsif "#{i}" == 5 %>
+          <% last_interview_5 = 100*last_interview_passed/last_interview %>
+
+        <% elsif "#{i}" == 6 && last_interview == 0 %>
+          <% last_interview_6 = 'データがありません' %>
+        <% elsif "#{i}" == 6 %>
+          <% last_interview_6 = 100*last_interview_passed/last_interview %>
+
+        <% elsif "#{i}" == 7 && last_interview == 0 %>
+          <% last_interview_7 = 'データがありません' %>
+        <% elsif "#{i}" == 7 %>
+          <% last_interview_7 = 100*last_interview_passed/last_interview %>
+
+        <% elsif "#{i}" == 8 && last_interview == 0 %>
+          <% last_interview_8 = 'データがありません' %>
+        <% elsif "#{i}" == 8 %>
+          <% last_interview_8 = 100*last_interview_passed/last_interview %>
+        <% end %>
 
 
 
-    <div id=contents2 class="tab-pane">
+    <div id="contents1" class="tab-pane">
       <%= render 'data',
-      screening_process: "screening_process_#{i}",
-      first_interview: "@first_interview_#{i}",
-      second_interview: "@second_interview_#{i}",
-      third_interview: "@third_interview_#{i}",
-      fourth_interview: "@fourth_interview_#{i}",
-      fifth_interview: "@fifth_interview_#{i}",
-      last_interview: "@last_interview_#{i}" %>
+      screening_process: screening_process_1,
+      first_interview: first_interview_1,
+      second_interview: second_interview_1,
+      third_interview: third_interview_1,
+      last_interview: last_interview_1 %>
+    </div>
 
+    <div id="contents2" class="tab-pane">
+      <%= render 'data',
+      screening_process: screening_process_2,
+      first_interview: first_interview_2,
+      second_interview: second_interview_2,
+      third_interview: third_interview_2,
+      last_interview: last_interview_2 %>
+    </div>
+    <div id="contents3" class="tab-pane">
+      <%= render 'data',
+      screening_process: screening_process_3,
+      first_interview: first_interview_3,
+      second_interview: second_interview_3,
+      third_interview: third_interview_3,
+      last_interview: last_interview_3 %>
+    </div>
+    <div id="contents4" class="tab-pane">
+      <%= render 'data',
+      screening_process: screening_process_4,
+      first_interview: first_interview_4,
+      second_interview: second_interview_4,
+      third_interview: third_interview_4,
+      last_interview: last_interview_4 %>
+    </div>
+    <div id="contents5" class="tab-pane">
+      <%= render 'data',
+      screening_process: screening_process_5,
+      first_interview: first_interview_5,
+      second_interview: second_interview_5,
+      third_interview: third_interview_5,
+      last_interview: last_interview_5 %>
+    </div>
+    <div id="contents6" class="tab-pane">
+      <%= render 'data',
+      screening_process: screening_process_6,
+      first_interview: first_interview_6,
+      second_interview: second_interview_6,
+      third_interview: third_interview_6,
+      last_interview: last_interview_6 %>
+    </div>
+    <div id="contents7" class="tab-pane">
+      <%= render 'data',
+      screening_process: screening_process_7,
+      first_interview: first_interview_7,
+      second_interview: second_interview_7,
+      third_interview: third_interview_7,
+      last_interview: last_interview_7 %>
+    </div>
+    <div id="contents8" class="tab-pane">
+      <%= render 'data',
+      screening_process: screening_process_8,
+      first_interview: first_interview_8,
+      second_interview: second_interview_8,
+      third_interview: third_interview_8,
+      last_interview: last_interview_8 %>
     </div>
     <% i += 1 %>
 
