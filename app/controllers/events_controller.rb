@@ -27,6 +27,12 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
+        # イベントのステータスで落選に変更されたら、企業のステータスを選考済みに変更
+        if @event.is_passed == 'droped'
+          company = Company.find(@event.company_id)
+          company.is_active = false
+          company.save
+        end
         format.html { redirect_to @event, notice: "Event was successfully created." }
         format.json { render :show, status: :created, location: @event }
       else
@@ -40,6 +46,12 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
+         # イベントのステータスで落選に変更されたら、企業のステータスを選考済みに変更
+        if @event.is_passed == 'droped'
+          company = Company.find(@event.company_id)
+          company.is_active = false
+          company.save
+        end
         format.html { redirect_to @event, notice: "Event was successfully updated." }
         format.json { render :show, status: :ok, location: @event }
       else
