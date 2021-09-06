@@ -1,56 +1,39 @@
-       <% companies.each do |company| %>
-        <%= link_to company do %>
-          <% if Company.find(company.id).events.include?("droped") %>
-            <div class="box_r">
-              <div class="row">
-                <div class="col-4">
-                  <%= company.name %>
-                </div>
-                <div class="col-4">
-                  <%= company.job %>
-                </div>
-                <div class="col-4">
-                  <% if company.is_active == false %>
-  <%= link_to '回答受付中に戻す', post_path(@post.id, post: {finished: false}), method: :put %>
-<% else %>
-  <%= link_to '解決済みにする', post_path(@post.id, post: {finished: true}), method: :put %>
-<% end %>
-                </div>
-                
-              </div>
-            </div>
+<% companies.each do |company| %>
+  <%= link_to company do %>
+    <div class="box_r">
+      <div class="row">
+        <div class="col-4">
+          <%= company.name %>
+        </div>
+        <div class="col-4">
+          <%= company.job %>
+        </div>
+
+
+
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <%= render 'function', company: company %>
+        </div>
+        <div class="col-8">
+          <% if Event.where(company_id: company.id).exists? %>
+            <% company_event = Event.where(company_id: company.id).last %>
+            <p>次の選考:<%= company_event.name %> 日時:<%= l company_event.date, format: :long %></p>
           <% else %>
-            <div class="box_r">
-              <div class="row">
-                <div class="col-4">
-                  <%= company.name %>
-                </div>
-                <div class="col-4">
-                  <%= company.job %>
-                </div>
-                <div class="col-4">
-
-                </div>
-              </div>
-              <div class="row">
-
-                <div class="col-4">
-                  <%= render 'function', company: company %>
-
-                </div>
-
-
-                <div class="col-8">
-                  <% if Event.where(company_id: company.id).exists? %>
-                <% company_event = Event.where(company_id: company.id).last %>
-                  <p>次の選考:<%= company_event.name %> 日時:<%= l company_event.date, format: :long %></p>
-                  <% else %>
-                  <p>次の選考:未設定</p>
-                  <% end %>
-                </div>
-
-              </div>
-            </div>
+            <p>次の選考:未設定</p>
           <% end %>
-        <% end %>
-      <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <% if company.is_active == false %>
+            <%= link_to '選考中に変更する', company_path(company.id, company: {is_active: true}), method: :put, data: { confirm: '本当に選考中に変更しますか?' }, class: "btn btn-success" %>
+          <% else %>
+            <%= link_to '選考済みに変更する', company_path(company.id, company: {is_active: false}), method: :put, data: { confirm: '本当に選考済みに変更しますか?' }, class: "btn btn-danger" %>
+          <% end %>
+        </div>
+      </div>
+     </div>
+  <% end %>
+<% end %>

@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies or /companies.json
   def index
-    @companies = Company.where(user_id: current_user.id).page(params[:page]).per(PER_PAGE)
+    @companies = Company.where(user_id: current_user.id).order(id: "DESC").page(params[:page]).per(PER_PAGE)
   end
 
   # GET /companies/1 or /companies/1.json
