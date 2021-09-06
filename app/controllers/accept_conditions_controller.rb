@@ -4,7 +4,7 @@ class AcceptConditionsController < ApplicationController
 
   # GET /accept_conditions or /accept_conditions.json
   def index
-    @accept_conditions = AcceptCondition.where(user_id: current_user.id).page(params[:page]).per(PER_PAGE)
+    @accept_conditions = AcceptCondition.where(user_id: current_user.id).order(importance: "DESC").page(params[:page]).per(PER_PAGE)
   end
 
   # GET /accept_conditions/new

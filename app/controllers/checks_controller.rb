@@ -4,7 +4,7 @@ class ChecksController < ApplicationController
 
   # GET /checks or /checks.json
   def index
-    @checks = Check.where(company_id: params[:company_id]).page(params[:page]).per(PER_PAGE)
+    @checks = Check.joins(:accept_condition).where(company_id: params[:company_id]).order(importance: "DESC").page(params[:page]).per(PER_PAGE)
     @company = Company.find(params[:company_id])
   end
 
