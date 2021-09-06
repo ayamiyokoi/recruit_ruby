@@ -30,6 +30,11 @@
     <%= form.label :detail %>
     <%= form.text_area :detail, class: "form-control", placeholder: "例）創業：1997年" %>
   </div>
+  <div class="field">
+    <%= form.label :is_active %>
+    <%= form.select :is_active ,[['選考中',true],['選考済み',false]] %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

@@ -8,13 +8,20 @@
       <div class="box_r">
         <div class="row">
           <div class="col-4">
-            <%= @company.name %>
+            <p>企業名：<%= @company.name %></p>
           </div>
           <div class="col-4">
-            <%= @company.job %>
+            <p>職種：<%= @company.job %></p>
           </div>
           <div class="col-4">
-            <p>一次選考</p>
+            <p>
+              ステータス：
+              <% if @company.is_active == true %>
+                選考中
+              <% else %>
+                選考済み
+              <% end %>
+            </p>
           </div>
         </div>
         <div class="row">

@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   PER_PAGE = 10
   # GET /events or /events.json
   def index
-    @events = Event.where(user_id: current_user.id).page(params[:page]).per(PER_PAGE)
+    @events = Event.where(user_id: current_user.id).order(date: "ASC").page(params[:page]).per(PER_PAGE)
     # @companies = Company.all
   end
 

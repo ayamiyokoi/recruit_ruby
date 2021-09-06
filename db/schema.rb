@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_02_001502) do
+ActiveRecord::Schema.define(version: 2021_09_06_085151) do
 
   create_table "accept_conditions", force: :cascade do |t|
     t.integer "user_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2021_09_02_001502) do
     t.text "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_active"
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 

@@ -4,7 +4,8 @@ class CompaniesController < ApplicationController
 
   # GET /companies or /companies.json
   def index
-    @companies = Company.where(user_id: current_user.id).page(params[:page]).per(PER_PAGE)
+    @companies = Company.where(user_id: current_user.id, is_active: true).order(id: "DESC").page(params[:page]).per(PER_PAGE)
+    @companies_done = Company.where(user_id: current_user.id, is_active: false).order(id: "DESC").page(params[:page]).per(PER_PAGE)
   end
 
   # GET /companies/1 or /companies/1.json
@@ -75,6 +76,6 @@ class CompaniesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def company_params
-      params.require(:company).permit(:user_id, :name, :media, :job, :detail)
+      params.require(:company).permit(:user_id, :name, :media, :job, :detail, :is_active)
     end
 end
