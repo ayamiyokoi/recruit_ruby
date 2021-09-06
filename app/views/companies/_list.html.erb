@@ -9,6 +9,14 @@
                 <div class="col-4">
                   <%= company.job %>
                 </div>
+                <div class="col-4">
+                  <% if company.is_active == false %>
+  <%= link_to '回答受付中に戻す', post_path(@post.id, post: {finished: false}), method: :put %>
+<% else %>
+  <%= link_to '解決済みにする', post_path(@post.id, post: {finished: true}), method: :put %>
+<% end %>
+                </div>
+                
               </div>
             </div>
           <% else %>

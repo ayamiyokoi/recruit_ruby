@@ -75,6 +75,6 @@ class CompaniesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def company_params
-      params.require(:company).permit(:user_id, :name, :media, :job, :detail)
+      params.require(:company).permit(:user_id, :name, :media, :job, :detail, :is_active)
     end
 end
