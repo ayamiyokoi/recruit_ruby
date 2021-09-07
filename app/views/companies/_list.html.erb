@@ -2,24 +2,24 @@
   <%= link_to company do %>
     <div class="box_r">
       <div class="row">
-        <div class="col-4">
+        <div class="col-md-4">
           <%= company.name %>
         </div>
-        <div class="col-4">
+        <div class="col-md-4 col-xs-8">
           <%= company.job %>
         </div>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col-md-4 col-xs-12">
           <%= render 'function', company: company %>
         </div>
-        <div class="col-8">
+        <div class="col-md-8 col-xs-12">
           <% if Event.where(company_id: company.id).exists? %>
             <% company_event = Event.where(company_id: company.id).last %>
             <p>
               次の選考:
               <%= render 'event_name', company_event: company_event %>
-              &emsp; 日時:  <%= l company_event.date, format: :long %>
+              &emsp;<br class="sp_only"> 日時:  <%= l company_event.date, format: :long %>
             </p>
           <% else %>
             <p>次の選考:未設定</p>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col-12">
           <% if company.is_active == false %>
             <%= link_to '選考中に変更する', company_path(company.id, company: {is_active: true}), method: :put, data: { confirm: '本当に選考中に変更しますか?' }, class: "btn btn-success" %>
           <% else %>

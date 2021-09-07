@@ -103,20 +103,29 @@ main {
 .title h2{
   margin-right: 20px;
 }
+.sp_only{
+    display:none;
+}
 
 /*768px以下*/
 @media screen and (max-width: 768px){
   /*必要ならばここにコードを書く*/
+  .sp_only{
+		display: initial;
+	}
   h1{
     text-align: center;
   }
   footer ul{
     display: flex;
-    width: 300px;
+    width: 380px;
     margin: auto;
   }
-  .vertical li{
-    writing-mode: vertical-rl;
-  }
+  // .vertical li{
+  //   writing-mode: vertical-rl;
+  // }
+  .pc_only{
+		display: none;
+	}
 }
 

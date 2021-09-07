@@ -2,21 +2,21 @@
   <%= link_to event do %>
     <div class="box_r">
       <div class="row">
-        <div class="col-4">
+        <div class="col-md-4">
           <%= event.company.name %>
         </div>
-        <div class="col-4">
+        <div class="col-md-4 col-xs-8">
           <%= event.company.job %>
         </div>
       </div>
       <div class="row">
-        <div class="col-4">
+        <div class="col-md-4 col-xs-12">
           <%= render 'companies/function', company: Company.find(event.company_id) %>
         </div>
-        <div class="col-8">
+        <div class="col-md-8 col-xs-12">
           <p>
             次の選考: <%= render 'companies/event_name', company_event: event %>
-            &emsp;日時:  <%= l event.date, format: :long %>
+            &emsp;<br class="sp_only">日時:  <%= l event.date, format: :long %>
           </p>
         </div>
       </div>

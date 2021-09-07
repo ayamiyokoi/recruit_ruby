@@ -11,7 +11,7 @@
           <% @checks.each do |check| %>
             <tr>
               <td><%= check.accept_condition.content %></td>
-              <td>
+              <td class="pc_only">
                 重要度：
                 <% if check.accept_condition.importance =="low" %>
                   低
