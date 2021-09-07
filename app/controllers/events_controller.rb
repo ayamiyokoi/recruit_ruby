@@ -5,8 +5,8 @@ class EventsController < ApplicationController
   def index
     # @events = Event.where(user_id: current_user.id).order(date: "ASC").page(params[:page]).per(PER_PAGE)
 
-    @events_passed = Event.where("date <= ?", Date.today).where(user_id: current_user.id).order(date: "ASC").page(params[:page]).per(PER_PAGE)
-    @events = Event.where("date <= ?", Date.today).where(user_id: current_user.id).order(date: "ASC").page(params[:page]).per(PER_PAGE)
+    @events_past = Event.where("date <= ?", Date.today).where(user_id: current_user.id).order(date: "DESC").page(params[:page]).per(PER_PAGE)
+    @events = Event.where("date > ?", Date.today).where(user_id: current_user.id).order(date: "ASC").page(params[:page]).per(PER_PAGE)
 
   end
 
