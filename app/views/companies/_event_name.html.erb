@@ -1,0 +1,17 @@
+<% if company_event.name == 'introduction' %>
+  説明会
+<% elsif company_event.name == 'screening_process' %>
+  書類選考
+<% elsif company_event.name == 'first_interview' %>
+  一次面接
+<% elsif company_event.name == 'second_interview' %>
+  二次面接
+<% elsif company_event.name == 'third_interview' %>
+  三次面接
+<% elsif company_event.name == 'last_interview' %>
+  最終面接
+<% elsif company_event.name == 'talk' %>
+  面談
+<% elsif company_event.name == 'other' %>
+  その他
+<% end %>

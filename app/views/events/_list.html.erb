@@ -16,7 +16,10 @@
         </div>
 
         <div class="col-8">
-          <p>次の選考:<%= event.name %> 日時:<%= l event.date, format: :long %></p>
+          <p>
+            次の選考: <%= render 'companies/event_name', company_event: event %>
+            &emsp;日時:  <%= l event.date, format: :long %>
+          </p>
         </div>
 
       </div>

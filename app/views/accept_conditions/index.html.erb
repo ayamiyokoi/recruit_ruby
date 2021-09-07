@@ -11,12 +11,22 @@
           <div class="box_r">
             <div class="row">
               <div class="col-12">
-                内定承諾条件：<%= accept_condition.content %>
+                <p>内定承諾条件：<%= accept_condition.content %></p>
               </div>
             </div>
             <div class="row">
               <div class="col-12">
-                重要度：<%= accept_condition.importance %>
+                <p>
+                  重要度：
+                  <% if accept_condition.importance =="low" %>
+                    低
+                  <% elsif accept_condition.importance =="medium" %>
+                    中
+                  <% else %>
+                    高
+                  <% end %>
+                </p>
+               
               </div>
 
               <div class="col-4">
