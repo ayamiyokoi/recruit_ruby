@@ -2,7 +2,6 @@
   <div class="row">
     <div class="col-12">
       <p id="notice"><%= notice %></p>
-
       <h1>内定承諾条件</h1>
       <hr>
       <%= link_to '内定承諾条件の登録', new_accept_condition_path, class: "btn btn-primary" %>
@@ -26,9 +25,7 @@
                     高
                   <% end %>
                 </p>
-               
               </div>
-
               <div class="col-4">
                 <%= link_to '削除', accept_condition, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger" %>
               </div>

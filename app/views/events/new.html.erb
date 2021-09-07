@@ -1,12 +1,12 @@
-
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1><%= link_to '<', events_path %> イベント登録</h1>
-
+      <div class="title">
+        <h2><%= link_to '<', events_path %></h2>
+        <h1>イベント登録</h1>
+      </div>
+      <hr>
       <%= render 'form', event: @event %>
-
-
     </div>
   </div>
 </div>

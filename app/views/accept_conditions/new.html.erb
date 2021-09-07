@@ -1,9 +1,11 @@
-
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1><%= link_to '<', accept_conditions_path %>内定承諾条件</h1>
-      
+      <div class="title">
+        <h2><%= link_to '<', accept_conditions_path %></h2>
+        <h1>内定承諾条件登録</h1>
+      </div>
+      <hr>
       <%= render 'form', accept_condition: @accept_condition %>
     </div>
   </div>

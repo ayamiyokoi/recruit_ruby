@@ -2,42 +2,40 @@
   <div class="row">
     <div class="col-12">
       <p id="notice"><%= notice %></p>
-      <h1><%= link_to '<', company_path(id: params[:company_id]) %><%= @company.name %>内定承諾条件</h1>
-
+      <div class="title">
+        <h2><%= link_to '<', company_path(id: params[:company_id]) %></h2>
+        <h1><%= @company.name %>志望度チェック</h1>
+      </div>
       <table class="table">
-
-
-  <tbody>
-    <% @checks.each do |check| %>
-      <tr>
-        <td><%= check.accept_condition.content %></td>
-        <td>
-          重要度：
-          <% if check.accept_condition.importance =="low" %>
-            低
-          <% elsif check.accept_condition.importance =="medium" %>
-            中
-          <% else %>
-            高
+        <tbody>
+          <% @checks.each do |check| %>
+            <tr>
+              <td><%= check.accept_condition.content %></td>
+              <td>
+                重要度：
+                <% if check.accept_condition.importance =="low" %>
+                  低
+                <% elsif check.accept_condition.importance =="medium" %>
+                  中
+                <% else %>
+                  高
+                <% end %>
+              </td>
+              <td>
+                <% if check.accept == 'no_evidence' %>
+                  -----
+                <% elsif check.accept == 'yes' %>
+                  条件を満たす
+                <% else %>
+                  条件を満たさない
+                <% end %>
+              </td>
+              <td><%= link_to '編集', edit_company_check_path(company_id: params[:company_id], id: check.id), class: "btn btn-success" %></td>
+            </tr>
           <% end %>
-        </td>
-        <td>
-          <% if check.accept == 'no_evidence' %>
-            -----
-          <% elsif check.accept == 'yes' %>
-            条件を満たす
-          <% else %>
-            条件を満たさない
-          <% end %>
-        </td>
-
-        <td><%= link_to '編集', edit_company_check_path(company_id: params[:company_id], id: check.id), class: "btn btn-success" %></td>
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @checks %>
+        </tbody>
+      </table>
+      <%= paginate @checks %>
     </div>
   </div>
 </div>

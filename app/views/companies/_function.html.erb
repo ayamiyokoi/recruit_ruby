@@ -1,10 +1,11 @@
+<!--志望度チェック計算-->
 <% if Check.where(company_id: company.id).exists? %>
   <% total = 0 %>
   <% point = 0 %>
   <% AcceptCondition.where(user_id: current_user.id).each do |accept_condition| %>
     <% if accept_condition.importance == 'low' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
       <% point += 1 %>
-        <% total += 1 %>
+      <% total += 1 %>
     <% elsif accept_condition.importance == 'low' %>
       <% total += 1 %>
     <% elsif accept_condition.importance == 'medium' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
@@ -21,5 +22,5 @@
   <% end %>
   <p>志望度：<%= 100*point/total %>%</p>
 <% else %>
-  <p>志望度:未設定</p>
+  <p>志望度: 未設定</p>
 <% end %>

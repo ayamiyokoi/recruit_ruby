@@ -1,26 +1,19 @@
-
-  <%= form_with(model: [company,check], local: true) do |form| %>
-    <% if check.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(check.errors.count, "つのエラー") %> が発生し保存できません</h2>
-
-        <ul>
-        <% check.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= form.label :accept %>
-      <%= form.select :accept, Check.accepts.keys.map {|k| [I18n.t("enums.check.accepts.#{k}"), k]}, class: "form-control" %>
-    </div>
-
-
+<%= form_with(model: [company,check], local: true) do |form| %>
+　<% if check.errors.any? %>
+　  <div id="error_explanation">
+　    <h2><%= pluralize(check.errors.count, "つのエラー") %> が発生し保存できません</h2>
+　    <ul>
+　    <% check.errors.full_messages.each do |message| %>
+　      <li><%= message %></li>
+　    <% end %>
+　    </ul>
+　  </div>
+　<% end %>
+　<div class="field">
+　  <%= form.label :accept %>
+　  <%= form.select :accept, Check.accepts.keys.map {|k| [I18n.t("enums.check.accepts.#{k}"), k]}, class: "form-control" %>
+　</div>
   <div class="actions">
     <%= form.submit %>
   </div>
-
-
 <% end %>

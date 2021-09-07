@@ -2,7 +2,6 @@
   <% if event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(event.errors.count, "つのエラー") %> が発生し保存できません</h2>
-
       <ul>
       <% event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -19,7 +18,6 @@
   <div class="field">
     ■ <%= form.label :name %><br>
     <%= form.select :name, Event.names.keys.map {|k| [I18n.t("enums.event.names.#{k}"), k]}, class: "form-control" %>
-
   </div>
 
   <div class="field">

@@ -2,7 +2,6 @@
   <% if company.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(company.errors.count, "つのエラー") %> が発生し保存できません</h2>
-
       <ul>
       <% company.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,22 +9,18 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     ■ <%= form.label :name %>
     <%= form.text_field :name, class: "form-control", placeholder: "例）株式会社○○○○" %>
   </div>
-
   <div class="field">
     ■ <%= form.label :media %><br>
     <%= form.select :media, Company.media.keys.map {|k| [I18n.t("enums.company.medias.#{k}"), k]}, class: "form-control" %>
   </div>
-
   <div class="field">
     ■ <%= form.label :job %>
     <%= form.text_field :job, class: "form-control", placeholder: "例）サーバーサイドエンジニア" %>
   </div>
-
   <div class="field">
     ■ <%= form.label :detail %>
     <%= form.text_area :detail, class: "form-control", placeholder: "例）創業：1997年" %>
@@ -34,8 +29,6 @@
     ■ <%= form.label :is_active %><br>
     <%= form.select :is_active ,[['選考中',true],['選考済み',false]] %>
   </div>
-
-
   <div class="actions">
     <%= form.submit %>
   </div>
