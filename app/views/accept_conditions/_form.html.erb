@@ -1,7 +1,7 @@
 <%= form_with(model: accept_condition, local: true) do |form| %>
   <% if accept_condition.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(accept_condition.errors.count, "error") %> prohibited this accept_condition from being saved:</h2>
+      <h2><%= pluralize(accept_condition.errors.count, "つのエラー") %> が発生し保存できません</h2>
 
       <ul>
       <% accept_condition.errors.full_messages.each do |message| %>
