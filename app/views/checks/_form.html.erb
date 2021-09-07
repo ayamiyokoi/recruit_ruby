@@ -2,7 +2,7 @@
   <%= form_with(model: [company,check], local: true) do |form| %>
     <% if check.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(check.errors.count, "error") %> prohibited this check from being saved:</h2>
+        <h2><%= pluralize(check.errors.count, "つのエラー") %> が発生し保存できません</h2>
 
         <ul>
         <% check.errors.full_messages.each do |message| %>

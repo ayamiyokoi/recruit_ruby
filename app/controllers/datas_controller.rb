@@ -8,21 +8,7 @@ class DatasController < ApplicationController
     else
       @screening_process = 100*screening_process_passed/screening_process
     end
-    # processes = Event.where(user_id: current_user.id)
 
-    # processes.each do |process|
-    #   mother_0 = 0
-    #   child_0 = 0
-    #   if process.name == "screening_process" && process.is_passed == "passed"
-    #     mother_0 += 1
-    #     child_0  += 1
-    #   elsif process.name == "screening_process"
-    #     mother_0 += 1
-    #   end
-    #     @screening_process = 100*child_0/mother_0
-
-
-    # end
 
     # 1次選考
     first_interview = Event.where(name: 2, user_id: current_user.id).count
@@ -50,24 +36,6 @@ class DatasController < ApplicationController
     else
       @third_interview = 100*third_interview_passed/third_interview
     end
-
-    # # 4次選考
-    # fourth_interview = Event.where(name: 5, user_id: current_user.id).count
-    # fourth_interview_passed = Event.where(name: 5, user_id: current_user.id, is_passed: 1).count
-    # if fourth_interview == 0
-    #   @fourth_interview = 'データがありません'
-    # else
-    #   @fourth_interview = 100*fourth_interview_passed/fourth_interview
-    # end
-
-    # # 5次選考
-    # fifth_interview = Event.where(name: 6, user_id: current_user.id).count
-    # fifth_interview_passed = Event.where(name: 6, user_id: current_user.id, is_passed: 1).count
-    # if fifth_interview == 0
-    #   @fifth_interview = 'データがありません'
-    # else
-    #   @fifth_interview = 100*fifth_interview_passed/fifth_interview
-    # end
 
      #最終選考
     last_interview = Event.where(name: 5, user_id: current_user.id).count

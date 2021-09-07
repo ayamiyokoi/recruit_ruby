@@ -12,7 +12,7 @@
 
       <p>
         <strong>イベント名：</strong>
-        <%= @event.name_i18n %>
+        <%= render 'companies/event_name', company_event: @event %>
       </p>
 
       <p>
@@ -22,7 +22,13 @@
 
       <p>
         <strong>ステータス：</strong>
-        <%= @event.is_passed_i18n %>
+        <% if @event.is_passed == "no_result" %>
+          -----
+        <% elsif @event.is_passed == "passed" %>
+          通過
+        <% else %>
+          落選
+        <% end %>
       </p>
 
       <%= link_to '編集', edit_event_path(@event), class: "btn btn-success" %>

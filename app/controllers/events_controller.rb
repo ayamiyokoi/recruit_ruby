@@ -3,8 +3,9 @@ class EventsController < ApplicationController
   PER_PAGE = 10
   # GET /events or /events.json
   def index
-    @events = Event.where(user_id: current_user.id).order(date: "ASC").page(params[:page]).per(PER_PAGE)
-    # @companies = Company.all
+    @events_past = Event.where("date <= ?", Date.today).where(user_id: current_user.id).order(date: "DESC").page(params[:page]).per(PER_PAGE)
+    @events = Event.where("date > ?", Date.today).where(user_id: current_user.id).order(date: "ASC").page(params[:page]).per(PER_PAGE)
+
   end
 
   # GET /events/1 or /events/1.json
@@ -24,10 +25,15 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: "Event was successfully created." }
+        # イベントのステータスで落選に変更されたら、企業のステータスを選考済みに変更
+        if @event.is_passed == 'droped'
+          company = Company.find(@event.company_id)
+          company.is_active = false
+          company.save
+        end
+        format.html { redirect_to @event, notice: "イベントの作成に成功しました。" }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +46,13 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: "Event was successfully updated." }
+         # イベントのステータスで落選に変更されたら、企業のステータスを選考済みに変更
+        if @event.is_passed == 'droped'
+          company = Company.find(@event.company_id)
+          company.is_active = false
+          company.save
+        end
+        format.html { redirect_to @event, notice: "イベントの更新に成功しました。" }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +65,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: "Event was successfully destroyed." }
+      format.html { redirect_to events_url, notice: "イベントの削除に成功しました。" }
       format.json { head :no_content }
     end
   end

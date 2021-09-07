@@ -11,7 +11,25 @@
     <% @checks.each do |check| %>
       <tr>
         <td><%= check.accept_condition.content %></td>
-        <td><%= check.accept %></td>
+        <td>
+          重要度：
+          <% if check.accept_condition.importance =="low" %>
+            低
+          <% elsif check.accept_condition.importance =="medium" %>
+            中
+          <% else %>
+            高
+          <% end %>
+        </td>
+        <td>
+          <% if check.accept == 'no_evidence' %>
+            -----
+          <% elsif check.accept == 'yes' %>
+            条件を満たす
+          <% else %>
+            条件を満たさない
+          <% end %>
+        </td>
 
         <td><%= link_to '編集', edit_company_check_path(company_id: params[:company_id], id: check.id), class: "btn btn-success" %></td>
 

@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-12">
       <h1><%= link_to '<', company_checks_path(company_id: params[:company_id]) %>     <%= @company.name %>志望度チェック</h1>
-      <p><%= @check.accept_condition.content %></p>
-      <%= render 'form', company: @company, check: @check %>
+      <p>■ <%= @check.accept_condition.content %></p>
+      <p><%= render 'form', company: @company, check: @check %></p>
     </div>
   </div>
 </div>

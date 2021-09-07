@@ -6,6 +6,7 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+
   enums:
     event:
       names:
@@ -14,8 +15,6 @@ ja:
         first_interview: 一次面接
         second_interview: 二次面接
         third_interview: 三次面接
-        fourth_interview: 四次面接
-        fifth_interview: 五次面接
         last_interview: 最終面接
         talk: 面談
         other: その他
@@ -37,8 +36,8 @@ ja:
     check:
       accepts:
         no_evidence: -----
-        yes: 条件を満たす
-        no: 条件を満たさない
+        'yes': 条件を満たす
+        'no': 条件を満たさない
     accept_condition:
       importances:
         low: 低
@@ -75,6 +74,7 @@ ja:
         name: 企業名
         job: 職種
         detail: メモ
+        is_active: ステータス
       check:
         accept: ステータス
       accept_condition:

@@ -1,11 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>企業の登録</h1>
-      
+      <h1><%= link_to '<', companies_path %> 企業の登録</h1>
+
       <%= render 'form', company: @company %>
-      
-      <%= link_to 'Back', companies_path %>
     </div>
   </div>
 </div>

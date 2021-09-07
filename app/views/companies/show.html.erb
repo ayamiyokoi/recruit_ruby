@@ -29,18 +29,39 @@
             <p>志望度：</p>
           </div>
           <div class="col-8">
-           <% if Event.where(company_id: @company.id).exists? %>
-             <% @company_event = Event.where(company_id: @company.id).last %>
-             <p>次の選考:<%= @company_event.name %> 日時:<%= l @company_event.date, format: :long %></p>
-           <% else %>
-             <p>次の選考:未設定</p>
-           <% end %>
-         </div>
+            <% if Event.where(company_id: @company.id).exists? %>
+              <% @company_event = Event.where(company_id: @company.id).last %>
+              <p>
+                次の選考:  <%= render 'event_name', company_event: @company_event %>
+                &emsp;日時:  <%= l @company_event.date, format: :long %>
+              </p>
+            <% else %>
+              <p>次の選考:未設定</p>
+            <% end %>
+          </div>
         </div>
       </div>
       <p>
         <strong>応募媒体：</strong>
-        <%= @company.media_i18n %>
+        <% if @company.media == "unselected" %>
+          <p>未選択</p>
+        <% elsif @company.media == "mynavi" %>
+          <p>マイナビ</p>
+        <% elsif @company.media == "recnavi" %>
+          <p>リクルート</p>
+        <% elsif @company.media == "type" %>
+          <p>Type(タイプ)</p>
+        <% elsif @company.media == "doda" %>
+          <p>doda(デューダ)</p>
+        <% elsif @company.media == "green" %>
+          <p>green(グリーン)</p>
+        <% elsif @company.media == "wantedly" %>
+          <p>wantedly(ウォンテッドリー)</p>
+        <% elsif @company.media == "dmm" %>
+          <p>DMM</p>
+        <% elsif @company.media == "other" %>
+          <p>その他</p>
+        <% end %>
       </p>
       <p><strong>会社メモ</strong></p>
       <p class="box_s">
