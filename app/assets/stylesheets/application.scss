@@ -97,6 +97,12 @@ main {
 .notice{
   opacity: 0;
 }
+.title{
+  display: flex;
+}
+.title h2{
+  margin-right: 20px;
+}
 
 /*768px以下*/
 @media screen and (max-width: 768px){

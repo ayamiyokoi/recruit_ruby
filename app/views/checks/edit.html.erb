@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1><%= link_to '<', company_checks_path(company_id: params[:company_id]) %>     <%= @company.name %>志望度チェック</h1>
+      <div class="title">
+        <h2><%= link_to '<', company_checks_path(company_id: params[:company_id]) %></h2>
+        <h1><%= @company.name %>志望度チェック</h1>
+      </div>
+      <hr>
       <p>■ <%= @check.accept_condition.content %></p>
       <p><%= render 'form', company: @company, check: @check %></p>
     </div>

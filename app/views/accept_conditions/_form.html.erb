@@ -11,14 +11,13 @@
     </div>
   <% end %>
 
-
   <div class="field">
-    <%= form.label :content %>
+    ■ <%= form.label :content %>
     <%= form.text_area :content, class: "form-control", placeholder: "例）残業時間30時間未満" %>
   </div>
 
   <div class="field">
-    <%= form.label :importance %>
+    ■ <%= form.label :importance %><br>
     <%= form.select :importance, AcceptCondition.importances.keys.map {|k| [I18n.t("enums.accept_condition.importances.#{k}"), k]}, class: "form-control" %>
   </div>
 
