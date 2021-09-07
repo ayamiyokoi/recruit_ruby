@@ -3,8 +3,6 @@ class EventsController < ApplicationController
   PER_PAGE = 10
   # GET /events or /events.json
   def index
-    # @events = Event.where(user_id: current_user.id).order(date: "ASC").page(params[:page]).per(PER_PAGE)
-
     @events_past = Event.where("date <= ?", Date.today).where(user_id: current_user.id).order(date: "DESC").page(params[:page]).per(PER_PAGE)
     @events = Event.where("date > ?", Date.today).where(user_id: current_user.id).order(date: "ASC").page(params[:page]).per(PER_PAGE)
 
@@ -27,7 +25,6 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-
     respond_to do |format|
       if @event.save
         # イベントのステータスで落選に変更されたら、企業のステータスを選考済みに変更

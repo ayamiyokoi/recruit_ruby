@@ -15,7 +15,6 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
-
   end
 
   # GET /companies/1/edit
@@ -27,7 +26,6 @@ class CompaniesController < ApplicationController
     @company = Company.new(company_params)
     @company.user_id = current_user.id
     @accept_conditions = AcceptCondition.where(user_id: current_user.id)
-
     respond_to do |format|
       if @company.save
         @accept_conditions.each do |accept_condition|
