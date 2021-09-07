@@ -1,5 +1,5 @@
 class AcceptCondition < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :checks, dependent: :destroy
   enum importance: { low: 0, medium: 1, high: 2 }
   validates :content, {presence: true}
