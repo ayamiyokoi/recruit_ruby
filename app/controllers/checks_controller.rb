@@ -29,7 +29,7 @@ class ChecksController < ApplicationController
     @check.company_id = params[:company_id]
     respond_to do |format|
       if @check.save
-        format.html { redirect_to company_checks_path(company_id: params[:company_id]), notice: "Check was successfully created." }
+        format.html { redirect_to company_checks_path(company_id: params[:company_id]), notice: "志望度チェックの作成に成功しました。" }
         format.json { redirect_to company_checks_path(company_id: params[:company_id]), status: :created, location: @check }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class ChecksController < ApplicationController
 
     respond_to do |format|
       if @check.update(check_params)
-        format.html { redirect_to company_checks_path(company_id: params[:company_id]), notice: "Check was successfully updated." }
+        format.html { redirect_to company_checks_path(company_id: params[:company_id]), notice: "志望度チェックの更新に成功しました。" }
         format.json { render redirect_to company_checks_path(company_id: params[:company_id]), status: :ok, location: @check }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class ChecksController < ApplicationController
   def destroy
     @check.destroy
     respond_to do |format|
-      format.html { redirect_to checks_url, notice: "Check was successfully destroyed." }
+      format.html { redirect_to checks_url, notice: "志望度チェックの削除に成功しました。" }
       format.json { head :no_content }
     end
   end

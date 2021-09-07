@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
           check.accept = 'no_evidence'
           check.save
         end
-        format.html { redirect_to @company, notice: "Company was successfully created." }
+        format.html { redirect_to @company, notice: "企業の作成に成功しました。" }
         format.json { render :show, status: :created, location: @company }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -50,7 +50,7 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update(company_params)
-        format.html { redirect_to @company, notice: "Company was successfully updated." }
+        format.html { redirect_to @company, notice: "企業の更新に成功しました。" }
         format.json { render :show, status: :ok, location: @company }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -63,7 +63,7 @@ class CompaniesController < ApplicationController
   def destroy
     @company.destroy
     respond_to do |format|
-      format.html { redirect_to companies_url, notice: "Company was successfully destroyed." }
+      format.html { redirect_to companies_url, notice: "企業の削除に成功しました。" }
       format.json { head :no_content }
     end
   end

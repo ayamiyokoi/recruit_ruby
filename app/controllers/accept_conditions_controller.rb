@@ -31,7 +31,7 @@ class AcceptConditionsController < ApplicationController
           check.accept = 'no_evidence'
           check.save
         end
-        format.html { redirect_to accept_conditions_path, notice: "Accept condition was successfully created." }
+        format.html { redirect_to accept_conditions_path, notice: "内定承諾条件の作成に成功しました。" }
         format.json { render :index, status: :created, location: @accept_condition }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class AcceptConditionsController < ApplicationController
   def update
     respond_to do |format|
       if @accept_condition.update(accept_condition_params)
-        format.html { redirect_to accept_conditions_path, notice: "Accept condition was successfully updated." }
+        format.html { redirect_to accept_conditions_path, notice: "内定承諾条件の更新に成功しました。" }
         format.json { render :index, status: :ok, location: @accept_condition }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class AcceptConditionsController < ApplicationController
   def destroy
     @accept_condition.destroy
     respond_to do |format|
-      format.html { redirect_to accept_conditions_url, notice: "Accept condition was successfully destroyed." }
+      format.html { redirect_to accept_conditions_url, notice: "内定承諾条件の削除に成功しました。" }
       format.json { head :no_content }
     end
   end
