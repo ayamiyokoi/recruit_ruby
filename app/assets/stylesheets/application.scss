@@ -21,12 +21,12 @@ header{
 }
 footer{
   background-color: #f7f768;
-  height: 50px;
+  height: 70px;
 }
 
 footer ul{
   display: flex;
-  width: 300px;
+  width: 350px;
   margin: auto;
 }
 
@@ -43,11 +43,12 @@ footer li{
   padding: 10px 10px 0;
 }
 .box_r:hover{
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 a:hover{
   text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .box_s{
@@ -95,3 +96,16 @@ main {
 .notice{
   opacity: 0;
 }
+/*768px以下*/
+@media screen and (max-width: 768px){
+  /*必要ならばここにコードを書く*/
+  footer ul{
+    display: flex;
+    width: 300px;
+    margin: auto;
+  }
+  .vertical li{
+    writing-mode: vertical-rl;
+  }
+}
+
