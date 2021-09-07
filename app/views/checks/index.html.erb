@@ -12,6 +12,16 @@
       <tr>
         <td><%= check.accept_condition.content %></td>
         <td>
+          重要度：
+          <% if check.accept_condition.importance =="low" %>
+            低
+          <% elsif check.accept_condition.importance =="medium" %>
+            中
+          <% else %>
+            高
+          <% end %>
+        </td>
+        <td>
           <% if check.accept == 'no_evidence' %>
             -----
           <% elsif check.accept == 'yes' %>
