@@ -22,6 +22,7 @@ header{
 footer{
   background-color: #f7f768;
   height: 70px;
+  margin-top: 20px;
 }
 
 footer ul{
@@ -96,9 +97,13 @@ main {
 .notice{
   opacity: 0;
 }
+
 /*768px以下*/
 @media screen and (max-width: 768px){
   /*必要ならばここにコードを書く*/
+  h1{
+    text-align: center;
+  }
   footer ul{
     display: flex;
     width: 300px;
