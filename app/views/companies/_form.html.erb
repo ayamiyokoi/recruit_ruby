@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    ■ <%= form.label :name %>
     <%= form.text_field :name, class: "form-control", placeholder: "例）株式会社○○○○" %>
   </div>
 
   <div class="field">
-    <%= form.label :media %>
+    ■ <%= form.label :media %><br>
     <%= form.select :media, Company.media.keys.map {|k| [I18n.t("enums.company.medias.#{k}"), k]}, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :job %>
+    ■ <%= form.label :job %>
     <%= form.text_field :job, class: "form-control", placeholder: "例）サーバーサイドエンジニア" %>
   </div>
 
   <div class="field">
-    <%= form.label :detail %>
+    ■ <%= form.label :detail %>
     <%= form.text_area :detail, class: "form-control", placeholder: "例）創業：1997年" %>
   </div>
   <div class="field">
-    <%= form.label :is_active %>
+    ■ <%= form.label :is_active %><br>
     <%= form.select :is_active ,[['選考中',true],['選考済み',false]] %>
   </div>
 
