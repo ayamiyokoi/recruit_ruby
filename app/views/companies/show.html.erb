@@ -40,7 +40,25 @@
       </div>
       <p>
         <strong>応募媒体：</strong>
-        <%= @company.media_i18n %>
+        <% if @company.media == "unselected" %>
+          <p>未選択</p>
+        <% elsif @company.media == "mynavi" %>
+          <p>マイナビ</p>
+        <% elsif @company.media == "recnavi" %>
+          <p>リクルート</p>
+        <% elsif @company.media == "type" %>
+          <p>Type(タイプ)</p>
+        <% elsif @company.media == "doda" %>
+          <p>doda(デューダ)</p>
+        <% elsif @company.media == "green" %>
+          <p>green(グリーン)</p>
+        <% elsif @company.media == "wantedly" %>
+          <p>wantedly(ウォンテッドリー)</p>
+        <% elsif @company.media == "dmm" %>
+          <p>DMM</p>
+        <% elsif @company.media == "other" %>
+          <p>その他</p>
+        <% end %>
       </p>
       <p><strong>会社メモ</strong></p>
       <p class="box_s">
