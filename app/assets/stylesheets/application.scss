@@ -103,6 +103,13 @@ main {
 .title h2{
   margin-right: 20px;
 }
+.right{
+  text-align: right;
+  margin-top: -57px
+}
+.padding_b{
+  padding-bottom: 10px;
+}
 .sp_only{
     display:none;
 }
@@ -121,6 +128,10 @@ main {
     width: 380px;
     margin: auto;
   }
+  .center{
+    text-align: center;
+  }
+
   // .vertical li{
   //   writing-mode: vertical-rl;
   // }

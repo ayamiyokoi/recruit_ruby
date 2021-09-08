@@ -4,7 +4,10 @@
       <p id="notice"><%= notice %></p>
       <h1>応募リスト</h1>
       <hr>
-      <%= link_to '応募企業の登録', new_company_path, class: "btn btn-primary" %>
+      <div class="center padding_b">
+        <%= link_to '応募企業の登録', new_company_path, class: "btn btn-primary w-75" %>
+      </div>
+
       <ul class="nav nav-tabs justify-content-center nav-pills">
         <li class="nav-item">
           <a href="#active" class="nav-link active" data-toggle="tab">選考中</a>
