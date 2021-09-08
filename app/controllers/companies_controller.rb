@@ -10,6 +10,11 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1 or /companies/1.json
   def show
+    if @company.user == current_user
+      render "show"
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /companies/new
@@ -19,6 +24,11 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+    if @company.user == current_user
+      render "edit"
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /companies or /companies.json

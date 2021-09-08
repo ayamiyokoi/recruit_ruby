@@ -14,6 +14,11 @@ class AcceptConditionsController < ApplicationController
 
   # GET /accept_conditions/1/edit
   def edit
+    if @accept_condition.user == current_user
+      render "edit"
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /accept_conditions or /accept_conditions.json
