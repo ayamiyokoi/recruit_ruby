@@ -3,6 +3,7 @@
     <th>書類通過率</th>
     <td>
       <%= screening_process %>
+      <!--データがあるときは%の追加-->
       <% unless screening_process == "データがありません" %>
         %
       <% end %>
@@ -12,6 +13,7 @@
     <th>1次選考通過率</th>
     <td>
       <%= first_interview %>
+      <!--データがあるときは%の追加-->
       <% unless first_interview == "データがありません" %>
         %
       <% end %>
@@ -21,6 +23,7 @@
     <th>2次選考通過率</th>
     <td>
       <%= second_interview %>
+      <!--データがあるときは%の追加-->
       <% unless second_interview == "データがありません" %>
         %
       <% end %>
@@ -30,6 +33,7 @@
     <th>3次選考通過率</th>
     <td>
       <%= third_interview %>
+      <!--データがあるときは%の追加-->
       <% unless third_interview == "データがありません" %>
         %
       <% end %>

@@ -12,6 +12,7 @@
             <tr>
               <td><%= check.accept_condition.content %></td>
               <td class="pc_only">
+                <!--カラム名_i18nが反映されなかったため場合分けで表示-->
                 重要度：
                 <% if check.accept_condition.importance =="low" %>
                   低
@@ -22,6 +23,7 @@
                 <% end %>
               </td>
               <td>
+                <!--カラム名_i18nが反映されなかったため場合分けで表示-->
                 <% if check.accept == 'no_evidence' %>
                   -----
                 <% elsif check.accept == 'yes' %>
