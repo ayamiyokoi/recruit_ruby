@@ -7,6 +7,11 @@ class ChecksController < ApplicationController
   # GET /checks or /checks.json
   def index
     @checks = Check.joins(:accept_condition).where(company_id: params[:company_id]).order(importance: "DESC").page(params[:page]).per(PER_PAGE)
+    if Company.find(params[:company_id]).user == current_user
+      render "index"
+    else
+      redirect_to root_path
+    end
   #   @company = Company.find(params[:company_id])
   end
 

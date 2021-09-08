@@ -10,6 +10,11 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    if @event.user == current_user
+      render "show"
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /events/new
@@ -19,6 +24,11 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    if @event.user == current_user
+      render "edit"
+    else
+      redirect_to root_path
+    end
   end
 
   # POST /events or /events.json
