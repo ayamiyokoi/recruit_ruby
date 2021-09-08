@@ -4,7 +4,9 @@
       <p id="notice"><%= notice %></p>
       <h1>イベント一覧</h1>
       <hr>
-      <%= link_to 'イベントの登録', new_event_path, class: "btn btn-primary" %>
+      <div class="center padding_b">
+        <%= link_to 'イベントの登録', new_event_path, class: "btn btn-primary w-75" %>
+      </div>
       <ul class="nav nav-tabs justify-content-center nav-pills">
         <li class="nav-item">
           <a href="#events" class="nav-link active" data-toggle="tab">イベント</a>

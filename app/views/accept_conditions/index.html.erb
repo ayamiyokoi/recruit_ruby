@@ -4,7 +4,9 @@
       <p id="notice"><%= notice %></p>
       <h1>内定承諾条件</h1>
       <hr>
-      <%= link_to '内定承諾条件の登録', new_accept_condition_path, class: "btn btn-primary" %>
+      <div class="center">
+        <%= link_to '内定承諾条件の登録', new_accept_condition_path, class: "btn btn-primary w-75" %>
+      </div>
       <% @accept_conditions.each do |accept_condition| %>
         <%= link_to edit_accept_condition_path(accept_condition) do %>
           <div class="box_r">
@@ -26,7 +28,7 @@
                   <% end %>
                 </p>
               </div>
-              <div class="col-4">
+              <div class="col-12 right">
                 <%= link_to '削除', accept_condition, method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger" %>
               </div>
             </div>

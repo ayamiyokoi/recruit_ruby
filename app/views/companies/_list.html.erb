@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 padding_b">
           <% if company.is_active == false %>
             <%= link_to '選考中に変更する', company_path(company.id, company: {is_active: true}), method: :put, data: { confirm: '本当に選考中に変更しますか?' }, class: "btn btn-success" %>
           <% else %>
