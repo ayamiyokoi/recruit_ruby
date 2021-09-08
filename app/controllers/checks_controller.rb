@@ -12,26 +12,19 @@ class ChecksController < ApplicationController
     else
       redirect_to root_path
     end
-  #   @company = Company.find(params[:company_id])
   end
 
   # GET /checks/new
   def new
     @check = Check.new
-    # @company = Company.find(params[:company_id])
-    # @accept_conditions = AcceptCondition.where(user_id: current_user.id)
   end
 
   # GET /checks/1/edit
   def edit
-    # @company = Company.find(params[:company_id])
-    # @accept_conditions = AcceptCondition.where(user_id: current_user.id)
   end
 
   # POST /checks or /checks.json
   def create
-    # @accept_conditions = AcceptCondition.where(user_id: current_user.id)
-    # @company = Company.find(params[:company_id])
     @check = Check.new(check_params)
     @check.company_id = params[:company_id]
     respond_to do |format|

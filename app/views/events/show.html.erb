@@ -24,6 +24,7 @@
 
       <p>
         <strong>ステータス：</strong>
+        <!--カラム名_i18nが反映されなかったため場合分けで表示-->
         <% if @event.is_passed == "no_result" %>
           -----
         <% elsif @event.is_passed == "passed" %>

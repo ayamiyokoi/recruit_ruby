@@ -1,6 +1,10 @@
 <!--志望度チェック計算-->
+<!--重要度別に重みを変更-->
+<!--重要度：低→重み：1、重要度：中→重み：2、重要度：高→重み：3-->
 <% if Check.where(company_id: company.id).exists? %>
+  <!--total=current_userが設定した条件の合計-->
   <% total = 0 %>
+  <!--point=companyが満たす条件の合計-->
   <% point = 0 %>
   <% AcceptCondition.where(user_id: current_user.id).each do |accept_condition| %>
     <% if accept_condition.importance == 'low' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
