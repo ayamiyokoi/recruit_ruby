@@ -23,8 +23,14 @@ footer{
   background-color: #f7f768;
   height: 70px;
   margin-top: 20px;
+  bottom: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 90000;
 }
-
+.box{
+  height: 70px;
+}
 footer ul{
   display: flex;
   width: 350px;
@@ -100,7 +106,7 @@ main {
 .title{
   display: flex;
 }
-.title h2{
+.title h1{
   margin-right: 20px;
 }
 .right{
@@ -126,7 +132,7 @@ main {
   .sp_only{
 		display: initial;
 	}
-  h1{
+  h2{
     text-align: center;
   }
   footer ul{

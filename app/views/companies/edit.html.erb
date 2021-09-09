@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-12">
       <div class="title">
-        <h2><%= link_to '<', @company %></h2>
-        <h1><%= @company.name %></h1>
+        <h1><%= link_to '<', @company %></h1>
+        <h2><%= @company.name %></h2>
       </div>
       <hr>
       <%= render 'form', company: @company %>
