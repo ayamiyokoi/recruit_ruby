@@ -69,7 +69,7 @@
         </p>
         <p><strong>会社メモ</strong></p>
         <p class="box_s">
-          <%= @company.detail %>
+          <%= safe_join(@company.detail.split("\n"),tag(:br)) %>
         </p>
           <%= link_to '編集', edit_company_path(@company), class: "btn btn-success" %>
           <%= link_to '削除', company_path(@company), method: :delete, data: { confirm: '本当に削除しますか?' }, class: "btn btn-danger" %>
