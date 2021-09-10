@@ -6,6 +6,7 @@
   <% total = 0 %>
   <!--point=companyが満たす条件の合計-->
   <% point = 0 %>
+
   <% AcceptCondition.where(user_id: current_user.id).each do |accept_condition| %>
     <% if accept_condition.importance == 'low' && Check.where(accept_condition_id: accept_condition.id, company_id: company.id).pluck(:accept).first == 'yes' %>
       <% point += 1 %>
