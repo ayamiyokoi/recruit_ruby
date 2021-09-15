@@ -365,6 +365,34 @@
 
 
     </div>
+    <div class="col-12">
+      <br><br>
+      <h2>企業数集計</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">選考中</th>
+            <th scope="col">書類選考中</th>
+            <th scope="col">一次選考中</th>
+            <th scope="col">二次選考中</th>
+            <th scope="col">三次選考中</th>
+            <th scope="col">最終選考中</th>
+            <th scope="col">選考終了</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= Company.where(user_id: current_user.id, is_active: true).count %> 社</td>
+            <td><%= Event.where(user_id: current_user.id, name: 1, is_passed: 0 ).count %> 社</td>
+            <td><%= Event.where(user_id: current_user.id, name: 2, is_passed: 0 ).count %> 社</td>
+            <td><%= Event.where(user_id: current_user.id, name: 3, is_passed: 0 ).count %> 社</td>
+            <td><%= Event.where(user_id: current_user.id, name: 4, is_passed: 0 ).count %> 社</td>
+            <td><%= Event.where(user_id: current_user.id, name: 5, is_passed: 0 ).count %> 社</td>
+            <td><%= Company.where(user_id: current_user.id, is_active: false).count %> 社</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
