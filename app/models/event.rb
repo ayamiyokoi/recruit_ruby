@@ -8,4 +8,8 @@ class Event < ApplicationRecord
   validates :company_id, {presence: true}
   validates :date, {presence: true}
   validates :is_passed, {presence: true}
+  
+  def self.next_event?(company)
+    Event.where(company_id: company.id).where("date > ?", Date.today).exists?
+  end
 end

@@ -21,7 +21,7 @@
           <% end %>
         </div>
         <div class="col-md-8 col-xs-12">
-          <% if Event.where(company_id: company.id).exists? %>
+          <% if Event.next_event?(company) %>
             <% company_event = Event.where(company_id: company.id).order(date: "ASC").last %>
             <p>
               次の選考:
@@ -34,11 +34,18 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-12 padding_b">
-          <% if company.is_active == false %>
-            <%= link_to '選考中に変更する', company_path(company.id, company: {is_active: true}), method: :put, data: { confirm: '本当に選考中に変更しますか?' }, class: "btn btn-success" %>
-          <% else %>
-            <%= link_to '選考済みに変更する', company_path(company.id, company: {is_active: false}), method: :put, data: { confirm: '本当に選考済みに変更しますか?' }, class: "btn btn-danger" %>
+        <div class="col-12 padding_b flex">
+          <p>
+            <% if company.is_active == false %>
+              <%= link_to '選考中に変更', company_path(company.id, company: {is_active: true}), method: :put, data: { confirm: '本当に選考中に変更しますか?' }, class: "btn btn-success" %>
+            <% else %>
+              <%= link_to '選考済みに変更', company_path(company.id, company: {is_active: false}), method: :put, data: { confirm: '本当に選考済みに変更しますか?' }, class: "btn btn-danger" %>
+            <% end %>
+          </p>
+          <% if Event.next_event?(company) == false && company.is_active == true %>
+          <p style="margin-left: 10px;">
+            <%= link_to '次の選考を追加', new_event_path, class: "btn btn-primary" %>
+          </p>
           <% end %>
         </div>
       </div>
