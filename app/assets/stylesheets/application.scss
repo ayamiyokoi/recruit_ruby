@@ -156,11 +156,11 @@ main {
   }
 
 
-  .vertical th{
+  .vertical{
     writing-mode: vertical-rl;
-    text-align: center;
   }
-  .textalign td{
+  .textalign td,
+  .vertical th{
     text-align: center;
   }
   .pc_only{
