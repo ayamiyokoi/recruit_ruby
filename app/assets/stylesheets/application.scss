@@ -156,8 +156,9 @@ main {
   }
 
 
-  .vertical{
+  .vertical th{
     writing-mode: vertical-rl;
+    text-align: center;
   }
   .textalign td{
     text-align: center;
