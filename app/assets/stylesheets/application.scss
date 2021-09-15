@@ -156,9 +156,12 @@ main {
   }
 
 
-  // .vertical li{
-  //   writing-mode: vertical-rl;
-  // }
+  .vertical{
+    writing-mode: vertical-rl;
+  }
+  .textalign td{
+    text-align: center;
+  }
   .pc_only{
 		display: none;
 	}
