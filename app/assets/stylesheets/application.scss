@@ -36,6 +36,9 @@ footer ul{
   width: 350px;
   margin: auto;
 }
+footer li a:hover{
+  background-color: rgba(0, 0, 0, 0) !important;
+}
 
 footer li{
   list-style: none;
