@@ -8,22 +8,22 @@
       <hr>
       <p id="notice"><%= notice %></p>
       <p>
-        <strong>企業名：</strong>
+        <strong>企業名：&emsp;&emsp;&emsp;</strong>
         <%= @event.company.name %>
       </p>
 
       <p>
-        <strong>イベント名：</strong>
+        <strong>イベント名：&emsp;</strong>
         <%= render 'companies/event_name', company_event: @event %>
       </p>
 
       <p>
-        <strong>日時：</strong>
+        <strong>日時：&emsp;&emsp;&emsp;&emsp;</strong>
         <%= l @event.date, format: :long %>
       </p>
 
       <p>
-        <strong>ステータス：</strong>
+        <strong>ステータス：&emsp;</strong>
         <!--カラム名_i18nが反映されなかったため場合分けで表示-->
         <% if @event.is_passed == "no_result" %>
           -----
