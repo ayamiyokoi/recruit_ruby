@@ -372,12 +372,14 @@
         <thead>
           <tr class="vertical">
             <th scope="col">選考中</th>
-            <th scope="col">書類選考中</th>
-            <th scope="col">一次選考中</th>
+            <th scope="col"><%= link_to '書類選考中', screening_process_index_path %></th>
+            <th scope="col"><%= link_to '一次選考中', first_interviews_path %></th>
             <th scope="col">二次選考中</th>
             <th scope="col">三次選考中</th>
             <th scope="col">最終選考中</th>
             <th scope="col">選考終了</th>
+
+
           </tr>
         </thead>
         <tbody>
