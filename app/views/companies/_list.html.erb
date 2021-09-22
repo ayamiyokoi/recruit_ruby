@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-md-4 col-xs-12 title">
           <p>
-            <%= render 'function', company: company %>&emsp;
+            <%= render 'companies/function', company: company %>&emsp;
           </p>
           <% unless Check.where(company_id: company.id, accept: 0).count == 0 %>
             <p class="count">
@@ -25,7 +25,7 @@
             <% company_event = Event.where(company_id: company.id).order(date: "ASC").last %>
             <p>
               次の選考:
-              <%= render 'event_name', company_event: company_event %>
+              <%= render 'companies/event_name', company_event: company_event %>
               &emsp;<br class="sp_only"> 日時:  <%= l company_event.date, format: :long %>
             </p>
           <% else %>

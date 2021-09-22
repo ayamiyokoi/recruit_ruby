@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p id="notice"><%= notice %></p>
+      <h2>書類選考企業リスト</h2>
+      <hr>
+      <p>書類選考中：<%= @companies.count %>社&emsp;<br class="sp_only">書類選考終了：<%= @companies_done.count %>社</p>
+
+      <ul class="nav nav-tabs justify-content-center nav-pills">
+        <li class="nav-item">
+          <a href="#active" class="nav-link active" data-toggle="tab">選考中</a>
+        </li>
+        <li class="nav-item">
+          <a href="#done" class="nav-link" data-toggle="tab">選考終了</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="active" class="tab-pane active">
+          <%= render 'companies/list', companies: @companies %>
+        </div>
+        <div id="done" class="tab-pane">
+          <%= render 'companies/list', companies: @companies_done %>
+        </div>
+      </div>
+      <%= paginate @companies %>
+    </div>
+  </div>
+</div>

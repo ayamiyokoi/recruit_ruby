@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :checks, :except => [:show]
   end
   resources :datas, :only => [:index]
+  resources :screening_process, :only => [:index]
+  resources :first_interviews, :only => [:index]
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
