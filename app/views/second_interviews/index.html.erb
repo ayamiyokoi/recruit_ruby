@@ -1,2 +1,34 @@
-<h1>SecondInterviews#index</h1>
-<p>Find me in app/views/second_interviews/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p id="notice"><%= notice %></p>
+      <h2二次選考企業リスト</h2>
+      <hr>
+      <p class="center_sp">二次選考中：<%= @companies.count %>社&emsp;二次選考通過：<%= @companies_pass.count %>社&emsp;二次選考落ち：<%= @companies_drop.count %>社</p>
+
+      <ul class="nav nav-tabs justify-content-center nav-pills">
+        <li class="nav-item">
+          <a href="#active" class="nav-link active" data-toggle="tab">選考中</a>
+        </li>
+        <li class="nav-item">
+          <a href="#pass" class="nav-link" data-toggle="tab">選考通過</a>
+        </li>
+        <li class="nav-item">
+          <a href="#drop" class="nav-link" data-toggle="tab">選考落ち</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="active" class="tab-pane active">
+          <%= render 'companies/list', companies: @companies %>
+        </div>
+        <div id="pass" class="tab-pane">
+          <%= render 'companies/list', companies: @companies_pass %>
+        </div>
+        <div id="drop" class="tab-pane">
+          <%= render 'companies/list', companies: @companies_drop %>
+        </div>
+      </div>
+      <%= paginate @companies %>
+    </div>
+  </div>
+</div>
